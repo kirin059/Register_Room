@@ -29,8 +29,17 @@ const List = (props) => {
     //     switchTab()  
     //          });
 
+    function showTab() {
+        let tab = document.querySelector('.tab_container');
+        tab.style.display = 'block'
+    }
+
     return (
         <div className="List">
+
+            <div className="nav_all">
+                <span onMouseOver={() => { showTab() }}>방 목록 전체보기</span>
+            </div>
             
             <Nav justify variant="tabs" defaultActiveKey="link-0" className="tab_container">
                 <Nav.Item>
@@ -43,11 +52,11 @@ const List = (props) => {
                 
             
             {/* <CSSTransition in={switchs} classNames="effect" timeout={500}>   */}
-                <>
+                <div className="info_container">
                 {
                     props.state.map((a, i) => {
                         return (
-                            <div className="info_container" key={i}>
+                            <div className="main_info" key={i}>
                                 <img src={props.state[i].thumbnail} alt="room image" />
                                 <div className="sub_info">
                                     <p>가격: {props.state[i].depositAmount}</p>
@@ -57,12 +66,12 @@ const List = (props) => {
                         )
                     })
                 } 
-                </>
+                </div>
             {/* </CSSTransition> */}
             
-            <div className="footer">
-                <button onClick={() => { history.push('/room/register') }}>방 등록 페이지 이동</button>
-            </div>            
+
+            <button onClick={() => { history.push('/room/register') }}>방 등록하기</button>
+           
         </div>
     );
 };

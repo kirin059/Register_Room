@@ -2,20 +2,29 @@ $main_color: #fccc1e;
 $sub_color: rgb(170, 169, 169);
 
 .default {
-    margin: 0px;
-    width: 100%;
+    margin: 5px 20% 0;
     height: 100%;
     box-sizing: border-box;
     font-family: 'Noto Sans KR', sans-serif;
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .List {
     @extend .default;
 
+    .nav_all {
+        margin-bottom: 10px;
+        padding: 15px;
+        background-color: $main_color;
+        border-radius: 5px;
+        font-size: 23px;
+        font-weight: 700;
+    }
+
     .tab_container {
-        margin: 50px 100px;
+        display: none;
+        margin-bottom: 50px;
 
         .tab {
             color: black;
@@ -32,35 +41,44 @@ $sub_color: rgb(170, 169, 169);
     }  
     
     .info_container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 10px;
+        height: 60vh;
+        border: 1px solid $sub_color;
+        border-radius: 5px;
+        overflow-y: scroll;
 
-        img {
-            margin-right: 10px;
-            width: 200px;
+        .main_info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+    
+            img {
+                margin-right: 10px;
+                width: 200px;
+            }
+    
+            .sub_info {
+                text-align: left;
+            }
         }
 
-        .sub_info {
-            text-align: left;
-        }
     }
 
-    .footer {
-        button {
-            padding: 15px;
-            background-color: $main_color;
-            border: none;
-            border-radius: 10px;
-            font-size: 25px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: transform 300ms ease;
-        }
-
-        button:hover {
-            transform: scale(0.98);
-        }   
+    button {
+        margin: 30px 0 0;
+        padding: 15px;
+        background-color: $main_color;
+        border: none;
+        border-radius: 10px;
+        font-size: 25px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 300ms ease;
     }
+
+    button:hover {
+        transform: scale(0.96);
+        cursor: pointer;
+    }   
+
 }
