@@ -9,7 +9,7 @@ const Main = () => {
     return (
         <div className="Main">
             <button onClick={() => {
-                history.push('./room')
+                history.push('./rooms')
             }}>방 구경가기 👀</button>            
         </div>
     );

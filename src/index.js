@@ -9,10 +9,25 @@ import RoomItems from './Data/RoomItems';
 import { createStore } from 'redux';
 
 let initState = RoomItems;
+console.log(initState)
 
 function reducer(state = initState, action) {
-  console.log(state)
-  return state;
+  if (action.type === 'upload') {
+    let found = state.filter((a) => { return a.canceled == true });
+    let setState = [...state]
+    setState = [...found]
+    return setState
+  }
+  else if (action.type === 'download') {
+    let found = state.filter((a) => { return a.canceled == false });
+    console.log(found)
+    let setState = [...state]
+    setState = [...found]
+    return setState
+  }
+  else {
+    return state;
+  }
 }
 
 const store = createStore(reducer);
@@ -20,7 +35,7 @@ const store = createStore(reducer);
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider store={store}>
+      <Provider store={ store }>
         <App />
       </Provider>
     </BrowserRouter>
