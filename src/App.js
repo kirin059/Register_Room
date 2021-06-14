@@ -17,6 +17,7 @@ function App() {
 
         <Route path="/room">
           {/* 방 목록 페이지 >> 등록/상세 페이지 이동*/}
+          <p>sdfsdf</p>
           <List />
         </Route>
 

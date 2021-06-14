@@ -3,7 +3,7 @@ import './Detail.scss';
 
 const Detail = () => {
     return (
-        <div className="detail">
+        <div className="Detail">
             
         </div>
     );

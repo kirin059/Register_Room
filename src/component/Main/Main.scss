@@ -1,0 +1,33 @@
+$main_color: #fccc1e;
+$sub_color: rgb(170, 169, 169);
+
+%function default {
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.Main {
+    @extend default;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+
+    button {
+        padding: 20px;
+        background-color: $main_color;
+        border: none;
+        border-radius: 10px;
+        font-size: 30px;
+        font-weight: 900;
+        cursor: pointer;
+        transition: transform 300ms ease;
+    }
+    
+    button:hover {
+        transform: scale(1.1);
+    }    
+}
