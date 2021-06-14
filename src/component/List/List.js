@@ -43,15 +43,16 @@ const List = (props) => {
                 
             
             {/* <CSSTransition in={switchs} classNames="effect" timeout={500}>   */}
-                {/* <Tab push={push} setSwitchs={setSwitchs}/> */}
                 <>
                 {
                     props.state.map((a, i) => {
                         return (
                             <div className="info_container" key={i}>
                                 <img src={props.state[i].thumbnail} alt="room image" />
-                                <p>가격: {props.state[i].depositAmount}</p>
-                                <p>주소: {props.state[i].address}</p>
+                                <div className="sub_info">
+                                    <p>가격: {props.state[i].depositAmount}</p>
+                                    <p>주소: {props.state[i].address}</p>
+                                </div>
                             </div>
                         )
                     })
