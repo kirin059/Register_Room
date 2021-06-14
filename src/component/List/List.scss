@@ -1,0 +1,30 @@
+$main_color: #fccc1e;
+$sub_color: rgb(170, 169, 169);
+
+%function default {
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.List {
+    @extend default;
+
+    .tab_container {
+        margin: 20px 50px;
+
+        .tab {
+            color: black;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .tab:hover {
+            color: red;
+            background-color: $main_color;
+            opacity: .5;
+        }
+    }    
+}

@@ -7,6 +7,7 @@ import Main from './component/Main/Main';
 import Register from './component/Register/Register';
 
 function App() {
+
   return (
     <div className="App">
       <Switch>
@@ -15,18 +16,17 @@ function App() {
           <Main />
         </Route>
 
-        <Route path="/room">
+        <Route exact path="/room">
           {/* 방 목록 페이지 >> 등록/상세 페이지 이동*/}
-          <p>sdfsdf</p>
           <List />
         </Route>
 
-        <Route path="/room/register">
+        <Route exact path="/room/register">
           {/* 방 등록 페이지 */}
           <Register />
         </Route>
 
-        <Route path="/room/{roomPK}">
+        <Route exact path="/room/{roomPK}">
           {/* 방 상세 페이지 */}
           <Detail />
         </Route>

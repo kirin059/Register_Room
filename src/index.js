@@ -4,11 +4,25 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import RoomItems from './Data/RoomItems';
+import { createStore } from 'redux';
+
+let initState = RoomItems;
+
+function reducer(state = initState, action) {
+  console.log(state)
+  return state;
+}
+
+const store = createStore(reducer);
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
