@@ -37,18 +37,16 @@ const List = (props) => {
     return (
         <div className="List">
 
-            <div className="nav_all">
+            <div className="header">
                 <span onMouseOver={() => { showTab() }}>방 목록 전체보기</span>
             </div>
             
-            <Nav justify variant="tabs" defaultActiveKey="link-0" className="tab_container">
-                <Nav.Item>
-                    <Nav.Link eventKey="link-0" className="tab" onClick={() => { props.dispatch({type: 'upload'}) }}>올린 방</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="link-1" className="tab" onClick={() => { props.dispatch({type: 'download'}) }}>내린 방</Nav.Link>
-                </Nav.Item>
-            </Nav>
+            <div className="tab_container">
+                <div className="tab">
+                    <p onClick={() => { props.dispatch({ type: 'upload' }) }}>올린 방</p>
+                    <p onClick={() => { props.dispatch({type: 'download'}) }}>내린 방</p>
+                </div>             
+            </div>
                 
             
             {/* <CSSTransition in={switchs} classNames="effect" timeout={500}>   */}
