@@ -23,17 +23,19 @@ function App() {
 
         <Route exact path="/room/register">
           {/* 방 등록 페이지 */}
+          <div>register room</div>
           <Register />
         </Route>
 
-        <Route exact path="/room/:roomPK">
+        <Route path="/room/:pk">
           {/* 방 상세 페이지 */}
+          <div>detail room</div>
           <Detail />
         </Route>
           
-        <Route path="/:id"> 
+        {/* <Route path="/:id"> 
           <div>잘못된 경로입니다. <Link to="/">메인페이지 이동</Link></div>
-        </Route>
+        </Route> */}
 
       </Switch>
       
