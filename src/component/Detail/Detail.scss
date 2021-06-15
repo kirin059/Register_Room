@@ -1,0 +1,24 @@
+$main_color: #fccc1e;
+$sub_color: rgb(170, 169, 169);
+
+.default {
+    margin: 5px 20% 0;
+    height: 100%;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    scroll-behavior: smooth;
+    overflow: hidden;
+}
+
+.Detail {
+    @extend .default;
+    
+    .header {
+        margin: 10px 0;
+        padding: 15px;
+        background-color: $main_color;
+        border-radius: 5px;
+        font-size: 23px;
+        font-weight: 700;
+    }
+}

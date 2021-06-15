@@ -1,33 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Nav } from 'react-bootstrap';
+import React from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router';
-import { CSSTransition } from 'react-transition-group';
-//import Tab from '../Tab/Tab';
 import './List.scss';
 
 const List = (props) => {
 
     let history = useHistory();
-
-    // let [push, setPush] = useState(0)
-    // let [switchs, setSwitchs] = useState(false)  //CSSTransition
-
-    // function switchTab() {
-    //     if (push === 0) {
-    //         if (props.state.canceled === true) {
-    //             return setSwitchs(true)
-    //         }     
-    //     }
-    //     else if (props.state.canceled === false && push === 1) {
-    //         setSwitchs(!switchs)
-    //     }
-    // }
-    
-
-    // useEffect(() => {
-    //     switchTab()  
-    //          });
 
     function showTab() {
         let tab = document.querySelector('.tab_container');
@@ -36,7 +14,6 @@ const List = (props) => {
 
     return (
         <div className="List">
-
             <div className="header">
                 <span onMouseOver={() => { showTab() }}>방 목록 전체보기</span>
             </div>
@@ -44,18 +21,17 @@ const List = (props) => {
             <div className="tab_container">
                 <div className="tab">
                     <p onClick={() => { props.dispatch({ type: 'upload' }) }}>올린 방</p>
-                    <p onClick={() => { props.dispatch({type: 'download'}) }}>내린 방</p>
+                    <p onClick={() => { props.dispatch({ type: 'download' }) }}>내린 방</p>
                 </div>             
-            </div>
-                
-            
-            {/* <CSSTransition in={switchs} classNames="effect" timeout={500}>   */}
-                <div className="info_container">
-                {
+            </div>            
+            <div className="info_container">
+               {
                     props.state.map((a, i) => {
                         return (
                             <div className="main_info" key={i}>
-                                <img src={props.state[i].thumbnail} alt="room image" />
+                                <img src={props.state[i].thumbnail} alt="room image" onClick={() => {
+                                    history.push('./room/:roomPK')
+                                }}/>
                                 <div className="sub_info">
                                     <p>가격: {props.state[i].depositAmount}</p>
                                     <p>주소: {props.state[i].address}</p>
@@ -64,12 +40,8 @@ const List = (props) => {
                         )
                     })
                 } 
-                </div>
-            {/* </CSSTransition> */}
-            
-
-            <button onClick={() => { history.push('/room/register') }}>방 등록하기</button>
-           
+            </div>
+            <button onClick={() => { history.push('/room/register') }}>방 등록하기</button> 
         </div>
     );
 };

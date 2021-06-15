@@ -8,19 +8,22 @@ import { Provider } from 'react-redux';
 import RoomItems from './Data/RoomItems';
 import { createStore } from 'redux';
 
+
 let initState = RoomItems;
+console.log(initState)
 
 function reducer(state = initState, action) {
   if (action.type === 'upload') {
     let found = state.filter((a) => { return a.canceled == true });
-    let setState = [...state]
+    console.log(found)
+    let setState = [...state];
     setState = [...found]
     return setState
   }
   else if (action.type === 'download') {
     let found = state.filter((a) => { return a.canceled == false });
     console.log(found)
-    let setState = [...state]
+    let setState = [...state];
     setState = [...found]
     return setState
   }

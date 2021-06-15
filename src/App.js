@@ -26,7 +26,7 @@ function App() {
           <Register />
         </Route>
 
-        <Route exact path="/room/{roomPK}">
+        <Route exact path="/room/:roomPK">
           {/* 방 상세 페이지 */}
           <Detail />
         </Route>
