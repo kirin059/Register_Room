@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import './Detail.scss';
 
 const Detail = (props) => {
-
+    let history = useHistory();
     let { pk } = useParams();
-
     let selectedRoom = props.state.find(function (a) {
         return a.pk == pk;
     });
@@ -46,7 +45,7 @@ const Detail = (props) => {
             {
                 selectedRoom.canceled === true
                     ?<button>방내리기</button>
-                    :<button>방올리기</button>
+                    :<button onClick={() => { history.push('/room/register') }}>방올리기</button>
             }
             
 

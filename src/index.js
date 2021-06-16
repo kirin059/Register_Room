@@ -28,6 +28,7 @@ import itemData from './itemData';
 // console.log(initState)
 
 let initState = itemData;
+console.log(initState)
 
 function reducer(state = initState, action) {
     return state;
