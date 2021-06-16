@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router';
 import './List.scss';
 
+import itemData from '../../itemData';  // 임의로 현재 페이지에 state값 지정해보자
+
 const List = (props) => {
-    console.log(props.state)
     
     let history = useHistory();
 
@@ -13,7 +14,7 @@ const List = (props) => {
         tab.style.display = 'block'
     }
 
-    let [list, setList] = useState(props.state);
+    let [list, setList] = useState(itemData);
 
     // useEffect(() => {
     //     setList( [...list])
