@@ -13,11 +13,11 @@ const List = (props) => {
         tab.style.display = 'block'
     }
 
-    let [list, setList] = useState([]);
+    let [list, setList] = useState(props.state);
 
-    useEffect(() => {
-        setList(props.state)
-    }, [])
+    // useEffect(() => {
+    //     setList( [...list])
+    // }, [])
     console.log(list)
 
 
@@ -28,26 +28,27 @@ const List = (props) => {
             </div>
             <div className="tab_container">
                 <div className="tab">
-                    <p onClick={() => { setList(props.state.filter(item => item.canceled == true)) }}>올린 방</p>
-                    <p onClick={() => { setList(props.state.filter(item => item.canceled == false)) }}>내린 방</p>
+                    <p onClick={() => { setList(list.filter(item => item.canceled == true)) }}>올린 방</p>
+                    <p onClick={() => { setList(list.filter(item => item.canceled == false)) }}>내린 방</p>
                 </div>             
             </div>            
             <div className="info_container">
                {
-                    list.map((a, i) => {
+                    list&&list.map((a, i) => {
                         return (
                             <div className="main_info" key={i}>
-                                <img src={props.state[i].thumbnail} alt="room image" onClick={() => {
-                                    history.push('./room/' + props.state[i].pk)
+                                <img src={list[i].thumbnail} alt="room image" onClick={() => {
+                                    history.push('./room/' + list[i].pk)
                                 }}/>
                                 <div className="sub_info">
-                                    <p>가격: {props.state[i].depositAmount}</p>
-                                    <p>주소: {props.state[i].address}</p>
+                                    <p>가격: {list[i].depositAmount}</p>
+                                    <p>주소: {list[i].address}</p>
                                 </div>
                             </div>
                         )
                     })
-                } 
+                }
+
             </div>
             <button onClick={() => { history.push('/room/register') }}>방 등록하기</button> 
         </div>

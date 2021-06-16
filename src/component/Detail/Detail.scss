@@ -1,5 +1,6 @@
 $main_color: #fccc1e;
 $sub_color: rgb(170, 169, 169);
+$line_color: rgb(212, 210, 210);
 
 .default {
     margin: 5px 20% 0;
@@ -12,7 +13,7 @@ $sub_color: rgb(170, 169, 169);
 
 .Detail {
     @extend .default;
-    
+
     .header {
         margin: 10px 0;
         padding: 15px;
@@ -21,4 +22,60 @@ $sub_color: rgb(170, 169, 169);
         font-size: 23px;
         font-weight: 700;
     }
+
+    .main_info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        border: 1px solid $line_color;
+        border-radius: 5px;
+
+        img {
+            margin-right: 10px;
+            width: 450px;
+            cursor: pointer;
+        }
+
+        .sub_info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-left: 50px;
+            text-align: left;
+            
+            p {
+                margin: 0;
+            }
+
+            .sub_info_top {
+                margin-bottom: 30px;
+                .price {
+                    font-size: 40px;
+                    font-weight: 700;
+                }
+            }
+
+            .sub_info_main {
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    button {
+        margin: 50px 0 0;
+        padding: 15px;
+        background-color: $main_color;
+        border: none;
+        border-radius: 10px;
+        font-size: 25px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 300ms ease;
+    }
+
+    button:hover {
+        transform: scale(0.96);
+        cursor: pointer;
+    }   
 }

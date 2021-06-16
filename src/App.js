@@ -17,19 +17,16 @@ function App() {
         </Route>
 
         <Route exact path="/rooms">
-          {/* 방 목록 페이지 >> 등록/상세 페이지 이동*/}
           <List />
         </Route>
 
         <Route exact path="/room/register">
           {/* 방 등록 페이지 */}
-          <div>register room</div>
           <Register />
         </Route>
 
         <Route path="/room/:pk">
           {/* 방 상세 페이지 */}
-          <div>detail room</div>
           <Detail />
         </Route>
           

@@ -8,6 +8,8 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
+import itemData from './itemData';
+
 // let initState = {
 //   total: RoomItens,
 //   upload: RoomItens.filter
@@ -15,17 +17,19 @@ import { createStore } from 'redux';
 // axios로 받아온 데이터를 변수 안에 객체로 담아준 뒤, total state와 filter된걸 두개로 분리해서
 // action을 받아올 때, return에다가 새로 filter안하고 upload state 쓰기
 
-const RoomItems = axios.get("./data.json") 
-  .then((res) => { return res.data })
-  .catch(() => { console.log('fail') })
 
 
-let initState = RoomItems;
-console.log(initState)
+// const RoomItems = axios.get("./data.json")
+//   .then((res) => { return res.data })
+//   .catch(() => { console.log('fail') })
+//   console.log(RoomItems)
+
+// let initState = RoomItems;
+// console.log(initState)
+
+let initState = itemData;
 
 function reducer(state = initState, action) {
-  console.log(state)
-  
     return state;
 
 }

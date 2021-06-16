@@ -17,17 +17,38 @@ const Detail = (props) => {
             <div className="header">
                 <span>방 상세 정보</span>
             </div>
-   
-           
        
             <div className="main_info">
                 <img src={selectedRoom.thumbnail} alt="room image" />
                 <div className="sub_info">
-                    <p>가격: {selectedRoom.depositAmount}</p>
-                    <p>주소: {selectedRoom.address}</p>
-                    <p>상세주소: { selectedRoom.detailAddress}</p>
+                    <div className="sub_info_top">
+                        <p>{selectedRoom.realEstate} / {selectedRoom.realEstatePriceType}</p> {/* 전세면 임대료 항목 안보이게 */}
+                        <p className="price">{selectedRoom.depositAmount}</p>
+                    </div>
+                    <div className="sub_info_main">
+                        <p>주소: {selectedRoom.address} { selectedRoom.detailAddress}</p>
+                        <p>공급면적: {selectedRoom.leasableArea} m2</p>
+                        <p>해당층: {selectedRoom.floor} 층</p>
+                        <p>방향: {selectedRoom.sunlightDirection} </p>
+                        <p>임대료: {selectedRoom.rentAmount} 원</p>
+                    </div>
+                    <div className="sub_info_bottom">
+                        <p>관리비: {selectedRoom.maintenanceFee} </p>
+                        <p>관리항목: {selectedRoom.maintenanceFeeItems} </p>
+                        <p>반려동물: {selectedRoom.pet} </p>
+                    </div>
+                    
+                    
+                    
                 </div>
             </div>
+
+            {
+                selectedRoom.canceled === true
+                    ?<button>방내리기</button>
+                    :<button>방올리기</button>
+            }
+            
 
         
         </div>
