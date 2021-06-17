@@ -48,9 +48,19 @@ $base_color: rgb(235, 230, 230);
                 border-bottom: 1px solid $line_color;
 
                 .category {
-                    width: 250px;
+                    max-width: 230px;
+                    width: 100%;
+                    max-height: 80px;
+                    height: 100%;
                     background-color: $base_color;
                     font-size: 20px;
+                    line-height: 3;
+
+                    p {
+                        margin: 0;
+                        height: 100%;
+                        background-color: $base_color;
+                    }
                 }
 
                 .content {

@@ -7,29 +7,44 @@ const Register = () => {
       });
       
     function monthly() {
-        let monthlyContainer = document.querySelector('.monthly')
-        if (monthlyContainer.style.display == 'none') {
-            monthlyContainer.style.display = 'block';
+        let monthly = document.querySelector('.monthly')
+        let jeonse = document.querySelector('.jeonse')
+        let selling = document.querySelector('.selling')
+
+        if (monthly.style.display == 'none') {
+            monthly.style.display = 'block';
+            jeonse.style.display = 'none';
+            selling.style.display = 'none';
         } else {
-            monthlyContainer.style.display = 'none';
+            monthly.style.display = 'none';
         }
     }
 
     function jeonse() {
-        let monthlyContainer = document.querySelector('.jeonse')
-        if (monthlyContainer.style.display == 'none') {
-            monthlyContainer.style.display = 'block';
+        let jeonse = document.querySelector('.jeonse')
+        let monthly = document.querySelector('.monthly')
+        let selling = document.querySelector('.selling')
+
+        if (jeonse.style.display == 'none') {
+            jeonse.style.display = 'block';
+            monthly.style.display = 'none';
+            selling.style.display = 'none';
         } else {
-            monthlyContainer.style.display = 'none';
+            jeonse.style.display = 'none';
         }  
     }
 
     function selling() {
-        let monthlyContainer = document.querySelector('.selling')
-        if (monthlyContainer.style.display == 'none') {
-            monthlyContainer.style.display = 'block';
+        let selling = document.querySelector('.selling')
+        let jeonse = document.querySelector('.jeonse')
+        let monthly = document.querySelector('.monthly')
+
+        if (selling.style.display == 'none') {
+            selling.style.display = 'block';
+            jeonse.style.display = 'none';
+            monthly.style.display = 'none';
         } else {
-            monthlyContainer.style.display = 'none';
+            selling.style.display = 'none';
         }  
     }
     
@@ -45,7 +60,7 @@ const Register = () => {
                     <header>매물 기본 정보</header>
                  
                     <div className="main">
-                        <div className="category"><span>주소</span></div>
+                        <div className="category">주소</div>
                         <div className="content">
                             <input type="text" placeholder="주소" />
                             <input type="text" placeholder="상세주소" />
@@ -54,7 +69,7 @@ const Register = () => {
                     <div className="main">
                         <div className="category">매물 종류</div>
                         <div className="content_flex">
-                        <input type="radio" id="select1" name="room"/><label for="select1">원룸</label>
+                            <input type="radio" id="select1" name="room"/><label for="select1">원룸</label>
                             <input type="radio" id="select2" name="room"/><label for="select2">투룸</label>
                             <input type="radio" id="select3" name="room" /><label for="select3">아파트</label>
                             <input type="radio" id="select4" name="room"/><label for="select4">오피스텔</label>
@@ -69,29 +84,28 @@ const Register = () => {
                         </div>
                     </div>
 
-                    {/* 월/전세/매매중 하나를 클릭하면 보이게 display:none한 뒤, 클릭하면 보여지도록*/}
                     {/* 월세*/}
-                    <div className="main monthly" style={{"display":"none"}}>
-                        <div className="category" style={{"backgroundColor":"#fae69d"}}>월세</div>
-                            <div className="content_flex">
-                                <input type="number" placeholder="보증금" />
-                                <input type="number" placeholder="임대료(월세)" />
+                    <div className="main monthly" style={{ "display": "none" }}>
+                        <div className="content_flex">
+                            <div className="category" style={{"backgroundColor":"#fae69d"}}>월세</div>
+                            <input type="number" placeholder="보증금(월세)" />
+                            <input type="number" placeholder="임대료(월세)" />
                         </div>
                     </div>
                     {/* 전세*/}
-                    <div className="main jeonse" style={{"display":"none"}}>
-                        <div className="category" style={{"backgroundColor":"#fae69d"}}>전세</div>
-                            <div className="content_flex">
-                                <input type="number" placeholder="보증금(전세)" />
+                    <div className="main jeonse" style={{ "display": "none" }}>
+                        <div className="content_flex">
+                            <div className="category" style={{"backgroundColor":"#fae69d"}}>전세</div>
+                            <input type="number" placeholder="보증금(전세)" />
                         </div>
                     </div>
                     {/* 매매*/}
-                    <div className="main selling" style={{"display":"none"}}>
-                        <div className="category" style={{"backgroundColor":"#fae69d"}}>매매</div>
-                            <div className="content_flex">
-                                <input type="number" placeholder="보증금(전세)" />
+                    <div className="main selling" style={{ "display": "none" }}>
+                        <div className="content_flex">
+                            <div className="category" style={{"backgroundColor":"#fae69d"}}>매매</div>
+                                <input type="number" placeholder="매매가" />
                         </div>
-                    </div>  
+                    </div> 
                 </div>
 
 
