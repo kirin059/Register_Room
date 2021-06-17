@@ -10,14 +10,20 @@ import { createStore } from 'redux';
 
 import itemData from './itemData';
 
-// let initState = {
-//   total: RoomItens,
-//   upload: RoomItens.filter
-// }
-// axios로 받아온 데이터를 변수 안에 객체로 담아준 뒤, total state와 filter된걸 두개로 분리해서
-// action을 받아올 때, return에다가 새로 filter안하고 upload state 쓰기
 
+async function abc() {
+  const RoomItems = await axios
+    .get("./data.json")
+    .then((res) => {
+      return res.data;
+    })
+    .catch(() => {
+      console.log("fail");
+    });
 
+    console.log(RoomItems);
+}
+abc()
 
 // const RoomItems = axios.get("./data.json")
 //   .then((res) => { return res.data })
@@ -30,9 +36,26 @@ import itemData from './itemData';
 let initState = itemData;
 console.log(initState)
 
-function reducer(state = initState, action) {
-    return state;
+// let initState = RoomItems;
+// console.log(abc)
 
+function reducer(state = initState, action) {
+  if (action.type === 'upload') {
+    let found = state.filter((a) => { return a.canceled == true });
+    let setState = [...state]
+    setState = [...found]
+    return setState
+  }
+  else if (action.type === 'download') {
+    let found = state.filter((a) => { return a.canceled == false });
+    console.log(found)
+    let setState = [...state]
+    setState = [...found]
+    return setState
+  }
+  else {
+    return state;
+  }
 }
 
 const store = createStore(reducer);

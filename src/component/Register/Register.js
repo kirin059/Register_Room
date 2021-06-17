@@ -2,13 +2,45 @@ import React from 'react';
 import './Register.scss';
 
 const Register = () => {
+    window.addEventListener("beforeunload", function (event) {
+        event.returnValue = "아직 방 등록이 완성되지 않았습니다. ";      
+      });
+      
+    function monthly() {
+        let monthlyContainer = document.querySelector('.monthly')
+        if (monthlyContainer.style.display == 'none') {
+            monthlyContainer.style.display = 'block';
+        } else {
+            monthlyContainer.style.display = 'none';
+        }
+    }
+
+    function jeonse() {
+        let monthlyContainer = document.querySelector('.jeonse')
+        if (monthlyContainer.style.display == 'none') {
+            monthlyContainer.style.display = 'block';
+        } else {
+            monthlyContainer.style.display = 'none';
+        }  
+    }
+
+    function selling() {
+        let monthlyContainer = document.querySelector('.selling')
+        if (monthlyContainer.style.display == 'none') {
+            monthlyContainer.style.display = 'block';
+        } else {
+            monthlyContainer.style.display = 'none';
+        }  
+    }
+    
+
     return (
         <div className="Register">
             <div className="header">
                 <span>방 등록하기</span>
             </div>
 
-            <form>
+            <form name="form">
                 <div className="info_frame">
                     <header>매물 기본 정보</header>
                  
@@ -31,15 +63,15 @@ const Register = () => {
                     <div className="main">
                         <div className="category">거래 종류</div>
                         <div className="content_flex">
-                            <input type="radio" id="select5" name="price"/><label for="select5">월세</label>
-                            <input type="radio" id="select6" name="price"/><label for="select6">전세</label>
-                            <input type="radio" id="select7" name="price"/><label for="select7">매매</label>
+                            <input type="radio" id="select5" name="price" onClick={ monthly }/><label for="select5">월세</label>
+                            <input type="radio" id="select6" name="price" onClick={ jeonse }/><label for="select6">전세</label>
+                            <input type="radio" id="select7" name="price" onClick={ selling }/><label for="select7">매매</label>
                         </div>
                     </div>
 
                     {/* 월/전세/매매중 하나를 클릭하면 보이게 display:none한 뒤, 클릭하면 보여지도록*/}
                     {/* 월세*/}
-                    <div className="main" style={{"display":"none"}}>
+                    <div className="main monthly" style={{"display":"none"}}>
                         <div className="category" style={{"backgroundColor":"#fae69d"}}>월세</div>
                             <div className="content_flex">
                                 <input type="number" placeholder="보증금" />
@@ -47,14 +79,14 @@ const Register = () => {
                         </div>
                     </div>
                     {/* 전세*/}
-                    <div className="main" style={{"display":"none"}}>
+                    <div className="main jeonse" style={{"display":"none"}}>
                         <div className="category" style={{"backgroundColor":"#fae69d"}}>전세</div>
                             <div className="content_flex">
                                 <input type="number" placeholder="보증금(전세)" />
                         </div>
                     </div>
                     {/* 매매*/}
-                    <div className="main" style={{"display":"none"}}>
+                    <div className="main selling" style={{"display":"none"}}>
                         <div className="category" style={{"backgroundColor":"#fae69d"}}>매매</div>
                             <div className="content_flex">
                                 <input type="number" placeholder="보증금(전세)" />
