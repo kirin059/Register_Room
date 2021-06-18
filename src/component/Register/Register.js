@@ -2,9 +2,9 @@ import React from 'react';
 import './Register.scss';
 
 const Register = () => {
-    window.addEventListener("beforeunload", function (event) {
-        event.returnValue = "아직 방 등록이 완성되지 않았습니다. ";      
-      });
+    // window.addEventListener("beforeunload", function (event) {
+    //     event.returnValue = "아직 방 등록이 완성되지 않았습니다. ";      
+    //   });
       
     function monthly() {
         let monthly = document.querySelector('.monthly')
@@ -38,14 +38,18 @@ const Register = () => {
         let selling = document.querySelector('.selling')
         let jeonse = document.querySelector('.jeonse')
         let monthly = document.querySelector('.monthly')
-
+        let input = document.querySelector('div#maintenance div.content input')
+        console.log(input)
+// 매매 누르면 관리비 항목 disabled되도록 만들기!!!!!!!!!!
         if (selling.style.display == 'none') {
             selling.style.display = 'block';
             jeonse.style.display = 'none';
             monthly.style.display = 'none';
         } else {
             selling.style.display = 'none';
-        }  
+            input.disabled = 'true';
+        }
+
     }
     
 
@@ -103,7 +107,7 @@ const Register = () => {
                     <div className="main selling" style={{ "display": "none" }}>
                         <div className="content_flex">
                             <div className="category" style={{"backgroundColor":"#fae69d"}}>매매</div>
-                                <input type="number" placeholder="매매가" />
+                            <input type="number" placeholder="매매가" />
                         </div>
                     </div> 
                 </div>
@@ -114,18 +118,18 @@ const Register = () => {
                     <header>매물 상세 정보</header>
                     
                     {/* 월/전세클릭시만 입력가능 */}
-                    <div className="main">
+                    <div className="main" id="maintenance">
                         <div className="category">관리비</div>
-                            <div className="content">
-                                <input type="number" placeholder="관리비 입력" />
-                                <div className="content_flex maintenanceFeeItems">
-                                    <p>관리비항목<br /><span style={{'color':'#326CF9', 'fontSize':'14px'}}>(다중선택)</span></p>
-                                    <input type="checkbox" id="select8" /><label for="select8">전기</label>
-                                    <input type="checkbox" id="select9" /><label for="select9">가스</label>
-                                    <input type="checkbox" id="select10" /><label for="select10">수도</label>
-                                    <input type="checkbox" id="select11" /><label for="select11">인터넷</label>
-                                    <input type="checkbox" id="select12" /><label for="select12">TV</label>
-                                </div>
+                        <div className="content">
+                            <input type="number" placeholder="관리비 입력" />
+                            <div className="content_flex maintenanceFeeItems">
+                                <p>관리비항목<br /><span style={{'color':'#326CF9', 'fontSize':'14px'}}>(다중선택)</span></p>
+                                <input type="checkbox" id="select8" /><label for="select8">전기</label>
+                                <input type="checkbox" id="select9" /><label for="select9">가스</label>
+                                <input type="checkbox" id="select10" /><label for="select10">수도</label>
+                                <input type="checkbox" id="select11" /><label for="select11">인터넷</label>
+                                <input type="checkbox" id="select12" /><label for="select12">TV</label>
+                            </div>
                         </div>
                     </div>  
                     <div className="main">

@@ -78,18 +78,20 @@ $line_color: rgb(212, 210, 210);
 
     button {
         margin: 50px 0 0;
-        padding: 15px;
-        background-color: $main_color;
+        background-color: white;
         border: none;
-        border-radius: 10px;
-        font-size: 25px;
-        font-weight: 700;
         cursor: pointer;
         transition: transform 300ms ease;
+
+        .fa-plus-circle {
+            color:  $main_color;
+            font-size: 70px;
+        }
     }
 
+
     button:hover {
-        transform: scale(0.96);
+        transform: scale(0.9);
         cursor: pointer;
     }   
 

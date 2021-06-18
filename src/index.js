@@ -11,7 +11,7 @@ import { createStore } from 'redux';
 import itemData from './itemData';
 
 
-async function abc() {
+async function ajax() {
   const RoomItems = await axios
     .get("./data.json")
     .then((res) => {
@@ -23,7 +23,7 @@ async function abc() {
 
     console.log(RoomItems);
 }
-abc()
+ajax()
 
 // const RoomItems = axios.get("./data.json")
 //   .then((res) => { return res.data })

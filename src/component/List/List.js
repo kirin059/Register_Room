@@ -62,7 +62,9 @@ const List = (props) => {
                 }
 
             </div>
-            <button onClick={() => { history.push('/room/register') }}>방 등록하기</button> 
+            <button onClick={() => { history.push('/room/register') }}><i class="fas fa-plus-circle"></i></button>
+                
+                
         </div>
     );
 };
