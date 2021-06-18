@@ -38,11 +38,15 @@ const Detail = (props) => {
                         <p>공급면적: {selectedRoom.leasableArea} m2</p>
                         <p>해당층: {selectedRoom.floor} 층</p>
                         <p>방향: {selectedRoom.sunlightDirection} </p>
-                        <p>임대료: {selectedRoom.rentAmount} 원</p>
+                        {
+                            selectedRoom.realEstate === "MONTHLY"
+                                ? (<p>임대료: {selectedRoom.rentAmount} 원</p>)
+                                : null
+                        }
                     </div>
                     <div className="sub_info_bottom">
                         <p>관리비: {selectedRoom.maintenanceFee} </p>
-                        <p>관리항목: {selectedRoom.maintenanceFeeItems} </p>
+                        <p>관리항목: {selectedRoom.maintenanceFeeItems[0, 1]} </p>
                         <p>반려동물: {selectedRoom.pet} </p>
                     </div>
                     
@@ -50,18 +54,14 @@ const Detail = (props) => {
                     
                 </div>
             </div>
-
             {
                 selectedRoom.canceled === true
                     ? (<div>
                             <button className="roomOff" onClick={roomOff}>방내리기</button>
                             <button onClick={() => { history.push('/room/register') }}>수정</button>
                         </div>)
-                    :<button onClick={() => { history.push('/room/register') }}>방올리기</button>
-            }
-            
-
-        
+                    :<button onClick={() => { history.push('/room/register/:pk') }}>방올리기</button>
+            }          
         </div>
     );
 };

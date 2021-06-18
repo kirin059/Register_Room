@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { ModalBody } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { useParams } from 'react-router';
+import Modal from '../Modal/Modal';
 import './Register.scss';
 
-const Register = () => {
-    window.addEventListener("beforeunload", function (e) {
-        e.preventDefault();
-        e.returnValue = "";
-        if (this.value === false) {
-            console.log('false')
-        }
-        
-      });
-
-    
+const Register = (props) => {
+    // window.addEventListener("beforeunload", function (e) {
+    //     e.preventDefault();
+    //     e.returnValue = "";
+    //   });
     
 //       let backControl = function(callbackFunction) {
 //         //window 내 mouse 위치 여부를 체크하기 위한 변수 
@@ -56,21 +54,13 @@ const Register = () => {
 
     let [input, setInput] = useState('');
     let [inputs, setInputs] = useState('');
-    
-    function calculator(a) {
-        let p = document.getElementById('#area_p');
-        let m = document.getElementById('#area_m');
 
-        m.addEventListener('onkeyup', (a) => {
-            if (a > 0) { 
-                return p.value = parseFloat(m.value) / 3.31;
-             }
-        })
-    }
-
-
+    let { pk } = useParams();
+    let selectedRoom = props.state.find(function (a) {
+        return a.pk == pk;
+    });
     
-    
+    let [modal, setModal] = useState(false)
       
     function monthly() {
         let monthly = document.querySelector('.monthly')
@@ -113,6 +103,11 @@ const Register = () => {
             selling.style.display = 'none';
         }
     }
+
+    function scrollPrevent() {
+        let body = document.querySelector('body')
+        body.style.overflow = 'hidden'
+    }
     
 
     return (
@@ -149,8 +144,6 @@ const Register = () => {
                             <input type="radio" id="select7" name="price" onClick={ selling }/><label for="select7">매매</label>
                         </div>
                     </div>
-
-                    {/* 월세*/}
                     <div className="main monthly" style={{ "display": "none" }}>
                         <div className="content_flex">
                             <div className="category" style={{"backgroundColor":"#fae69d"}}>월세</div>
@@ -158,14 +151,12 @@ const Register = () => {
                             <input type="number" placeholder="임대료(월세)" />
                         </div>
                     </div>
-                    {/* 전세*/}
                     <div className="main jeonse" style={{ "display": "none" }}>
                         <div className="content_flex">
                             <div className="category" style={{"backgroundColor":"#fae69d"}}>전세</div>
                             <input type="number" placeholder="보증금(전세)" />
                         </div>
                     </div>
-                    {/* 매매*/}
                     <div className="main selling" style={{ "display": "none" }}>
                         <div className="content_flex">
                             <div className="category" style={{"backgroundColor":"#fae69d"}}>매매</div>
@@ -173,9 +164,6 @@ const Register = () => {
                         </div>
                     </div> 
                 </div>
-
-
-
                 <div className="info_frame">
                     <header>매물 상세 정보</header>
                     
@@ -209,12 +197,10 @@ const Register = () => {
                                 <input type="radio" id="select17" name="direction"/><label for="select17">WEST(서)</label>
                                 <input type="radio" id="select18" name="direction" /><label for="select18">SOUTH(남)</label>
                                 <input type="radio" id="select19" name="direction" /><label for="select19">NORTH(북)</label>
-                            </div>
-                            <div className="content_flex">
                                 <input type="radio" id="select20" name="direction"/><label for="select20">SOUTH_EAST(남동)</label>
                                 <input type="radio" id="select21" name="direction" /><label for="select21">SOUTH_WEST(남서)</label>
                                 <input type="radio" id="select22" name="direction"/><label for="select22">NORTH_WEST(북서)</label>
-                                <input type="radio" id="select23" name="directionep" /><label for="select23">NORTH_EAST(북동)</label>
+                                <input type="radio" id="select23" name="direction" /><label for="select23">NORTH_EAST(북동)</label>
                             </div>
                         </div>
                     </div>
@@ -224,18 +210,17 @@ const Register = () => {
                             <input name="area_p" type="number" onChange={(e) => {
                                 setInput(e.target.value * 3.31)
                                 setInputs(e.target.value);
-                            }} onFocus={() => { setInput('') }} value={inputs} />
+                            }} value={inputs} />
                             <p>평</p>
                             <input name="area_m" type="number" onChange={(e) => {
-                                setInputs(e.target.value / 3.31)
-                                setInput(e.target.value);
-                            }} onFocus={() => { setInputs('') }} value={input} />
+                                setInput(e.target.value)
+                                setInputs(e.target.value / 3.31);
+                            }} value={input} />
                             <p>m<sup>2</sup></p>
                         </div>
                     </div>
                    
                 </div>
-
                 <div className="info_frame">
                     <header>매물 추가 정보</header>
                     <div className="main">
@@ -253,14 +238,23 @@ const Register = () => {
                         </div>
                     </div>                    
                 </div>
-
-                <button type="submit" onClick={() => {
-
+                <button type="button" id="submit" onClick={() => {
+                    setModal(true);
+                    scrollPrevent()
                 }}>등록</button>
-
             </form>
+            {
+                    modal === true
+                    ? <Modal setModal={setModal} />
+                    : null
+                }
         </div>
     );
 };
 
-export default Register;
+function Props(state) {
+    return {
+        state: state
+    }
+}
+export default connect(Props)(Register);
