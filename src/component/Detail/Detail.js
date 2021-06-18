@@ -55,7 +55,7 @@ const Detail = (props) => {
                 selectedRoom.canceled === true
                     ? (<div>
                             <button className="roomOff" onClick={roomOff}>방내리기</button>
-                            <button onClick={() => { history.push('/room/register') }}>수정해서 방올리기</button>
+                            <button onClick={() => { history.push('/room/register') }}>수정</button>
                         </div>)
                     :<button onClick={() => { history.push('/room/register') }}>방올리기</button>
             }

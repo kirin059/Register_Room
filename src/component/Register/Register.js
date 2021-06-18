@@ -1,10 +1,77 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Register.scss';
 
 const Register = () => {
-    // window.addEventListener("beforeunload", function (event) {
-    //     event.returnValue = "아직 방 등록이 완성되지 않았습니다. ";      
-    //   });
+    window.addEventListener("beforeunload", function (e) {
+        e.preventDefault();
+        e.returnValue = "";
+        if (this.value === false) {
+            console.log('false')
+        }
+        
+      });
+
+    
+    
+//       let backControl = function(callbackFunction) {
+//         //window 내 mouse 위치 여부를 체크하기 위한 변수 
+//         window.innerDoc = false; 		
+
+//         window.addEventListener('mouseover', function() {    
+//             window.innerDoc = true;
+//         }); 
+//         window.addEventListener('mouseout', function() {                
+//             window.innerDoc = false;
+//         });
+          
+//         // 바로 이전 페이지로 이동하는 것을 막기위해 history State 추가 
+//         history.pushState({page:"first"},  document.title, location.pathname + '#first');
+        
+//         //popstate Event Listener 
+//         window.addEventListener('popstate', function() { 
+//             // history State 추가하여 페이지 이동 막음 (뒤로가기 막기)
+//             history.pushState({page:"historyChanged"},  document.title, location.pathname + '#changed');	
+          
+//             // window 영역 밖에서 history가 변경 됐을경우 callbackFunction 실행 ( 뒤로가기 버튼 등 )  
+//             // 이전 POST 페이지에 정상적으로 데이터 재전송하여 SUBMIT 등 수행
+//             if (!window.innerDoc) { 
+//                 callbackFunction();
+//             } 
+//         });  
+//   }
+  
+//   // window 영역 밖의 핸들링 되지 않은 버튼으로 history 변경 이동했을 경우 실행할 Function
+//   var callbackFunction = function() {
+//       // document.referrer 등 체크하여 이전 POST 페이지로 정상 이동 할 수 있도록 데이터 생성 및 추가 및 submit
+//       // window 내 버튼 등을 통한 이동 외에 페이지 이동 불가 alret 안내 등 처리 
+//   }
+  
+//   //뒤로가기 방지 이벤트
+//   backControl(callbackFunction);
+    
+ 
+    
+    // window.history.pushState(null, '', ['./room/register']);
+    // window.onpopstate = () => { history.go(1);  };
+
+    let [input, setInput] = useState('');
+    let [inputs, setInputs] = useState('');
+    
+    function calculator(a) {
+        let p = document.getElementById('#area_p');
+        let m = document.getElementById('#area_m');
+
+        m.addEventListener('onkeyup', (a) => {
+            if (a > 0) { 
+                return p.value = parseFloat(m.value) / 3.31;
+             }
+        })
+    }
+
+
+
+    
+    
       
     function monthly() {
         let monthly = document.querySelector('.monthly')
@@ -38,18 +105,14 @@ const Register = () => {
         let selling = document.querySelector('.selling')
         let jeonse = document.querySelector('.jeonse')
         let monthly = document.querySelector('.monthly')
-        let input = document.querySelector('div#maintenance div.content input')
-        console.log(input)
-// 매매 누르면 관리비 항목 disabled되도록 만들기!!!!!!!!!!
+
         if (selling.style.display == 'none') {
             selling.style.display = 'block';
             jeonse.style.display = 'none';
             monthly.style.display = 'none';
         } else {
             selling.style.display = 'none';
-            input.disabled = 'true';
         }
-
     }
     
 
@@ -117,11 +180,10 @@ const Register = () => {
                 <div className="info_frame">
                     <header>매물 상세 정보</header>
                     
-                    {/* 월/전세클릭시만 입력가능 */}
                     <div className="main" id="maintenance">
                         <div className="category">관리비</div>
                         <div className="content">
-                            <input type="number" placeholder="관리비 입력" />
+                            <input type="number" placeholder="관리비 입력(전/월세)" />
                             <div className="content_flex maintenanceFeeItems">
                                 <p>관리비항목<br /><span style={{'color':'#326CF9', 'fontSize':'14px'}}>(다중선택)</span></p>
                                 <input type="checkbox" id="select8" /><label for="select8">전기</label>
@@ -160,10 +222,10 @@ const Register = () => {
                     <div className="main">
                         <div className="category">전용 면적</div>
                         <div className="content_flex">
-                            <input type="number" />
+                            <input name="area_p" type="number" onChange={(e) => { setInput(e.target.value * 3.31) }}  onFocus={() => {setInput('')}} value={inputs}/>
                             <p>평</p>
-                            <input type="number" />
-                            <p>m2</p>
+                            <input name="area_m" type="number" onChange={(e) => { setInputs(e.target.value / 3.31)}}   onFocus={() => {setInputs('')}} value={ input }/>
+                            <p>m<sup>2</sup></p>
                         </div>
                     </div>
                    
