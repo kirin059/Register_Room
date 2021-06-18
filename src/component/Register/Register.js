@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Register.scss';
 
 const Register = () => {
@@ -67,7 +67,6 @@ const Register = () => {
              }
         })
     }
-
 
 
     
@@ -222,9 +221,15 @@ const Register = () => {
                     <div className="main">
                         <div className="category">전용 면적</div>
                         <div className="content_flex">
-                            <input name="area_p" type="number" onChange={(e) => { setInput(e.target.value * 3.31) }}  onFocus={() => {setInput('')}} value={inputs}/>
+                            <input name="area_p" type="number" onChange={(e) => {
+                                setInput(e.target.value * 3.31)
+                                setInputs(e.target.value);
+                            }} onFocus={() => { setInput('') }} value={inputs} />
                             <p>평</p>
-                            <input name="area_m" type="number" onChange={(e) => { setInputs(e.target.value / 3.31)}}   onFocus={() => {setInputs('')}} value={ input }/>
+                            <input name="area_m" type="number" onChange={(e) => {
+                                setInputs(e.target.value / 3.31)
+                                setInput(e.target.value);
+                            }} onFocus={() => { setInputs('') }} value={input} />
                             <p>m<sup>2</sup></p>
                         </div>
                     </div>
@@ -249,7 +254,9 @@ const Register = () => {
                     </div>                    
                 </div>
 
-                <button type="submit">등록</button>
+                <button type="submit" onClick={() => {
+
+                }}>등록</button>
 
             </form>
         </div>
