@@ -9,7 +9,16 @@ const Detail = (props) => {
     let selectedRoom = props.state.find(function (a) {
         return a.pk == pk;
     });
-    console.log(selectedRoom)
+    
+    
+    function roomOff() {
+        let roomOff = document.querySelector('.roomOff');
+        let mainInfo = document.querySelector('.main_info');
+
+        roomOff.addEventListener('click', () => {
+            mainInfo.style.display = 'none';
+        })
+    }
 
     return (
         <div className="Detail">
@@ -44,7 +53,10 @@ const Detail = (props) => {
 
             {
                 selectedRoom.canceled === true
-                    ?<button>방내리기</button>
+                    ? (<div>
+                            <button className="roomOff" onClick={roomOff}>방내리기</button>
+                            <button onClick={() => { history.push('/room/register') }}>수정해서 방올리기</button>
+                        </div>)
                     :<button onClick={() => { history.push('/room/register') }}>방올리기</button>
             }
             
