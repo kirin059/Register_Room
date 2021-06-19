@@ -5,6 +5,8 @@ import { useParams } from 'react-router';
 import Modal from '../Modal/Modal';
 import './Register.scss';
 
+
+
 const Register = (props) => {
     // window.addEventListener("beforeunload", function (e) {
     //     e.preventDefault();
@@ -56,7 +58,7 @@ const Register = (props) => {
     let [inputs, setInputs] = useState('');
 
     let { pk } = useParams();
-    let selectedRoom = props.state.find(function (a) {
+    let selectedRooms = props.state.find(function(a) {
         return a.pk == pk;
     });
     
@@ -108,7 +110,19 @@ const Register = (props) => {
         let body = document.querySelector('body')
         body.style.overflow = 'hidden'
     }
-    
+
+
+    function validation(e) {
+        let input = document.querySelectorAll('input');
+
+        e.preventDefault();
+        
+	if (input.value == ""){	                    
+		alert("모든 항목 기입을 완료해주세요");
+		document.form.focus();
+		return false;
+	}
+}
 
     return (
         <div className="Register">
@@ -116,21 +130,21 @@ const Register = (props) => {
                 <span>방 등록하기</span>
             </div>
 
-            <form name="form">
+            <form name="form" method="get" action="web_server.htm" onSubmit={validation}>
                 <div className="info_frame">
                     <header>매물 기본 정보</header>
                  
                     <div className="main">
                         <div className="category">주소</div>
                         <div className="content">
-                            <input type="text" placeholder="주소" />
-                            <input type="text" placeholder="상세주소" />
+                            <input type="text" placeholder="주소" value={ selectedRooms.address }/>
+                            <input type="text" placeholder="상세주소" value={ selectedRooms.detailAddress }/>
                         </div>
                     </div>
                     <div className="main">
                         <div className="category">매물 종류</div>
                         <div className="content_flex">
-                            <input type="radio" id="select1" name="room"/><label for="select1">원룸</label>
+                            <input type="radio" id="select1" name="room" /><label for="select1">원룸</label>
                             <input type="radio" id="select2" name="room"/><label for="select2">투룸</label>
                             <input type="radio" id="select3" name="room" /><label for="select3">아파트</label>
                             <input type="radio" id="select4" name="room"/><label for="select4">오피스텔</label>
@@ -238,7 +252,7 @@ const Register = (props) => {
                         </div>
                     </div>                    
                 </div>
-                <button type="button" id="submit" onClick={() => {
+                <button type="submit" id="submit" onClick={() => {
                     setModal(true);
                     scrollPrevent()
                 }}>등록</button>

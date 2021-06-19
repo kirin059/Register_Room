@@ -6,7 +6,7 @@ import './Detail.scss';
 const Detail = (props) => {
     let history = useHistory();
     let { pk } = useParams();
-    let selectedRoom = props.state.find(function (a) {
+    let selectedRoom = props.state.find(function(a) {
         return a.pk == pk;
     });
     
@@ -20,6 +20,8 @@ const Detail = (props) => {
         })
     }
 
+    let [maintenanceFeeItems, setMaintenanceFeeItems] = useState([...selectedRoom.maintenanceFeeItems])
+    console.log(maintenanceFeeItems)
     return (
         <div className="Detail">
             <div className="header">
@@ -30,7 +32,7 @@ const Detail = (props) => {
                 <img src={selectedRoom.thumbnail} alt="room image" />
                 <div className="sub_info">
                     <div className="sub_info_top">
-                        <p>{selectedRoom.realEstate} / {selectedRoom.realEstatePriceType}</p> {/* 전세면 임대료 항목 안보이게 */}
+                        <p>{selectedRoom.realEstate} / {selectedRoom.realEstatePriceType}</p>
                         <p className="price">{selectedRoom.depositAmount}</p>
                     </div>
                     <div className="sub_info_main">
@@ -45,9 +47,20 @@ const Detail = (props) => {
                         }
                     </div>
                     <div className="sub_info_bottom">
-                        <p>관리비: {selectedRoom.maintenanceFee} </p>
-                        <p>관리항목: {selectedRoom.maintenanceFeeItems[0, 1]} </p>
-                        <p>반려동물: {selectedRoom.pet} </p>
+                        <p>관리비: {selectedRoom.maintenanceFee} </p> 
+                        <p>관리항목:
+                         {
+                                maintenanceFeeItems.map((a, i) => {
+                                return (<span style={{'marginRight': '10px'}}>{maintenanceFeeItems[i]}</span>)
+                            })
+                         }
+                         </p>
+                        {
+                            selectedRoom.pet == true
+                                ? (<p>반려동물: 가능 </p>)
+                                : (<p>반려동물: 불가능 </p>)
+                        }
+                        
                     </div>
                     
                     
