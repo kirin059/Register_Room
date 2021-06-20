@@ -112,7 +112,7 @@ const Register = (props) => {
             return false;
         } else {
             
-            submit.addEventListener('click', handleSubmit)
+            handleSubmit()
             return false;
         }       
     }
@@ -250,7 +250,7 @@ const Register = (props) => {
                         </div>
                     </div>                    
                 </div>
-                <button type="submit" id="submit" onClick={validation}>등록</button>
+                <button type="button" id="submit" onClick={validation}>등록</button>
             </form>
             {
                     modal === true
