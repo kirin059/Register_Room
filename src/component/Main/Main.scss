@@ -17,7 +17,6 @@ $sub_color: rgb(170, 169, 169);
     align-items: center;
     height: 100vh;
     width: 100vw;
-
     button {
         padding: 20px;
         background-color: $main_color;
@@ -27,8 +26,7 @@ $sub_color: rgb(170, 169, 169);
         font-weight: 900;
         cursor: pointer;
         transition: transform 300ms ease;
-    }
-    
+    }  
     button:hover {
         transform: scale(1.1);
     }    

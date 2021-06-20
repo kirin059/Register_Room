@@ -41,15 +41,15 @@ console.log(initState)
 
 function reducer(state = initState, action) {
   if (action.type === 'upload') {
-    let found = state.filter((a) => { return a.canceled == true });
-    let setState = [...state]
+    let found = itemData.filter((a) => { return a.canceled == true });
+    let setState = [...itemData]
     setState = [...found]
     return setState
   }
   else if (action.type === 'download') {
-    let found = state.filter((a) => { return a.canceled == false });
+    let found = itemData.filter((a) => { return a.canceled == false });
     console.log(found)
-    let setState = [...state]
+    let setState = [...itemData]
     setState = [...found]
     return setState
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import './Modal.scss';
 
 const Modal = (props) => {
+
     function scrollProve() {
         let body = document.querySelector('body')
         body.style.overflow = 'auto'
@@ -13,7 +14,6 @@ const Modal = (props) => {
                 props.setModal(false)
                 scrollProve()
             }}>
-
                 <div className="content">
                     <button className="close" onClick={() => {
                         props.setModal(false)

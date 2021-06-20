@@ -4,8 +4,6 @@ import { useParams } from 'react-router';
 import Modal from '../Modal/Modal';
 import './Register.scss';
 
-import { useForm } from "react-hook-form";
-
 const Register = (props) => {
     // window.addEventListener("beforeunload", function (e) {
     //     e.preventDefault();
@@ -66,52 +64,31 @@ const Register = (props) => {
         body.style.overflow = 'hidden'
     }
 
-    // function validation(e) {
-    //     let input = document.querySelectorAll('input');
-    //     let submit = document.querySelector('#submit')
-    //     e.preventDefault();
-    //     for (let i = 0; i < input.length; i++) {
-    //         if (input[i].value==""){	                    
-    //             alert("모든 항목 기입을 완료해주세요");
-    //             document.form.focus();
-                
-    //             submit.removeEventListener('click', null)
-    //             return false;
-    //         }
-    //     }
-    // }
     function validation() {
         let address = document.querySelector('input[name=address]')
         let detailAddress = document.querySelector('input[name=detail_address]')
         let maintenance = document.querySelector('input[name=maintenance]')
         let area = document.querySelector('input[name=area_p]')
-        let room1 = document.getElementById('select1');
-        let room2 = document.getElementById('select2');
-        let room3 = document.getElementById('select3');
-        let room4 = document.getElementById('select4');
-        let month = document.getElementById('select5');
-        let jeonse = document.getElementById('select6');
-        let sell = document.getElementById('select7');
-        let item1 = document.getElementById('select8');
-        let item2 = document.getElementById('select9');
-        let item3 = document.getElementById('select10');
-        let item4 = document.getElementById('select11');
-        let item5 = document.getElementById('select12');
-        let layer1 = document.getElementById('select13');
-        let layer2 = document.getElementById('select14');
-        let layer3 = document.getElementById('select15');
+        let room = document.querySelectorAll('input[name=room]')
+        let price = document.querySelectorAll('input[name=price]')
+        let item = document.querySelectorAll('input[name=items]')
+        let step = document.querySelectorAll('input[name=step]')
+        let direction = document.querySelectorAll('input[name=direction]')
+        let animal = document.querySelectorAll('input[name=animal]')
+        let car = document.querySelectorAll('input[name=car]')
         let submit = document.querySelector('#submit')
 
         if ((!address.value || !detailAddress.value || !maintenance.value || !area.value) ||
-            (!room1.checked && !room2.checked && !room3.checked && !room4.checked) ||
-            (!month.checked && !jeonse.checked && !sell.checked) ||
-            (!item1.checked && !item2.checked && !item3.checked && !item4.checked && !item5.checked) ||
-            (!layer1.checked && !layer2.checked && !layer3.checked)) {
+            (!room[0].checked && !room[1].checked && !room[2].checked && !room[3].checked) ||
+            (!price[0].checked && !price[1].checked && !price[2].checked) ||
+            (!item[0].checked && !item[1].checked && !item[2].checked && !item[3].checked && !item[4].checked) ||
+            (!step[0].checked && !step[0].checked && !step[0].checked) ||
+            (!direction[0].checked && !direction[1].checked && !direction[2].checked && !direction[3].checked && !direction[4].checked && !direction[5].checked && !direction[6].checked && !direction[7].checked) ||
+            (!animal[0].checked && !animal[1].checked) || (!car[0].checked && !car[1].checked)) {
             alert("모든 항목을 입력해주세요");
             submit.removeEventListener('click', handleSubmit)
             return false;
-        } else {
-            
+        } else {          
             handleSubmit()
             return false;
         }       
@@ -127,11 +104,9 @@ const Register = (props) => {
             <div className="header">
                 <span>방 등록하기</span>
             </div>
-
             <form name="form" method="get" action="/" >
                 <div className="info_frame">
                     <header>매물 기본 정보</header>
-                 
                     <div className="main">
                         <div className="category">주소</div>
                         <div className="content">
@@ -177,19 +152,18 @@ const Register = (props) => {
                     </div> 
                 </div>
                 <div className="info_frame">
-                    <header>매물 상세 정보</header>
-                    
+                    <header>매물 상세 정보</header> 
                     <div className="main" id="maintenance">
                         <div className="category">관리비</div>
                         <div className="content">
                             <input name="maintenance" type="number" placeholder="관리비 입력(전/월세)" />
                             <div className="content_flex maintenanceFeeItems">
                                 <p>관리비항목<br /><span style={{'color':'#326CF9', 'fontSize':'14px'}}>(다중선택)</span></p>
-                                <input type="checkbox" id="select8" /><label for="select8">전기</label>
-                                <input type="checkbox" id="select9" /><label for="select9">가스</label>
-                                <input type="checkbox" id="select10"  /><label for="select10">수도</label>
-                                <input type="checkbox" id="select11" /><label for="select11">인터넷</label>
-                                <input type="checkbox" id="select12" /><label for="select12">TV</label>
+                                <input type="checkbox" id="select8" name="items" /><label for="select8">전기</label>
+                                <input type="checkbox" id="select9" name="items" /><label for="select9">가스</label>
+                                <input type="checkbox" id="select10" name="items" /><label for="select10">수도</label>
+                                <input type="checkbox" id="select11" name="items" /><label for="select11">인터넷</label>
+                                <input type="checkbox" id="select12" name="items" /><label for="select12">TV</label>
                             </div>
                         </div>
                     </div>  
@@ -209,9 +183,9 @@ const Register = (props) => {
                                 <input type="radio" id="select17" name="direction"/><label for="select17">WEST(서)</label>
                                 <input type="radio" id="select18" name="direction" /><label for="select18">SOUTH(남)</label>
                                 <input type="radio" id="select19" name="direction" /><label for="select19">NORTH(북)</label>
-                                <input type="radio" id="select20" name="direction"/><label for="select20">SOUTH_EAST(남동)</label>
+                                <input type="radio" id="select20" name="direction" /><label for="select20">SOUTH_EAST(남동)</label>
                                 <input type="radio" id="select21" name="direction" /><label for="select21">SOUTH_WEST(남서)</label>
-                                <input type="radio" id="select22" name="direction"/><label for="select22">NORTH_WEST(북서)</label>
+                                <input type="radio" id="select22" name="direction" /><label for="select22">NORTH_WEST(북서)</label>
                                 <input type="radio" id="select23" name="direction" /><label for="select23">NORTH_EAST(북동)</label>
                             </div>
                         </div>
@@ -230,8 +204,7 @@ const Register = (props) => {
                             }} value={input} />
                             <p>m<sup>2</sup></p>
                         </div>
-                    </div>
-                   
+                    </div>       
                 </div>
                 <div className="info_frame">
                     <header>매물 추가 정보</header>

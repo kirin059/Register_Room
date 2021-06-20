@@ -3,36 +3,15 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router';
 import './List.scss';
 
-import itemData from '../../itemData';  // 임의로 현재 페이지에 state값 지정해보자
-
 const List = (props) => {
     
     let history = useHistory();
-
+    
     function showTab() {
         let tab = document.querySelector('.tab_container');
         tab.style.display = 'block'
     }
-    //let list = [...itemData]; 변수로 state 저장해보기
-    let [list, setList] = useState(itemData);
-
-    // useEffect(() => {
-    //     function selectedData() {
-    //         let copy = [...list];
-    //         copy.filter(item => item.canceled == true);
-    //         setList(copy)
-    //     }
-    //     selectedData();
-    // })
-    console.log(list)
-
-    // function selectedData() {
-    //            let copy = [...list];
-    //             copy.filter(item => item.canceled == true);
-    //             setList(copy)
-    //         }
-    // selectedData();
-    
+     
     return (
         <div className="List">
             <div className="header">
@@ -60,11 +39,8 @@ const List = (props) => {
                         )
                     })
                 }
-
             </div>
-            <button onClick={() => { history.push('/room/register') }}><i class="fas fa-plus-circle"></i></button>
-                
-                
+            <button onClick={() => { history.push('/room/register') }}><i class="fas fa-plus-circle"></i></button>      
         </div>
     );
 };
