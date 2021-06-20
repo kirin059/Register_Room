@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 import './Detail.scss';
@@ -9,19 +9,14 @@ const Detail = (props) => {
     let selectedRoom = props.state.find(function(a) {
         return a.pk == pk;
     });
-    
-    
-    function roomOff() {
-        let roomOff = document.querySelector('.roomOff');
-        let mainInfo = document.querySelector('.main_info');
 
-        roomOff.addEventListener('click', () => {
-            mainInfo.style.display = 'none';
-        })
+    function roomOff() {
+        let mainInfo = document.querySelector('.main_info');
+        let roomModify = document.querySelector('.roomModify');
+        mainInfo.style.display = 'none';
+        roomModify.disabled="disabled"
     }
 
-    let [maintenanceFeeItems, setMaintenanceFeeItems] = useState([...selectedRoom.maintenanceFeeItems])
-    console.log(maintenanceFeeItems)
     return (
         <div className="Detail">
             <div className="header">
@@ -50,8 +45,8 @@ const Detail = (props) => {
                         <p>관리비: {selectedRoom.maintenanceFee} </p> 
                         <p>관리항목:
                          {
-                                maintenanceFeeItems.map((a, i) => {
-                                return (<span style={{'marginRight': '10px'}}>{maintenanceFeeItems[i]}</span>)
+                                selectedRoom.maintenanceFeeItems.map((a, i) => {
+                                return (<span style={{'marginRight': '10px'}}>{selectedRoom.maintenanceFeeItems[i]}</span>)
                             })
                          }
                          </p>
@@ -59,21 +54,17 @@ const Detail = (props) => {
                             selectedRoom.pet == true
                                 ? (<p>반려동물: 가능 </p>)
                                 : (<p>반려동물: 불가능 </p>)
-                        }
-                        
-                    </div>
-                    
-                    
-                    
+                        }   
+                    </div> 
                 </div>
             </div>
             {
                 selectedRoom.canceled === true
-                    ? (<div>
-                            <button className="roomOff" onClick={roomOff}>방내리기</button>
-                            <button onClick={() => { history.push('/room/register') }}>수정</button>
-                        </div>)
-                    :<button onClick={() => { history.push('/room/register/:pk') }}>방올리기</button>
+                ? (<div>
+                        <button className="roomOff" onClick={roomOff}>방내리기</button>
+                        <button className="roomModify" onClick={() => { history.push('/room/register/:pk') }}>수정</button>
+                    </div>)
+                :<button onClick={() => { history.push('/room/register') }}>방올리기</button>
             }          
         </div>
     );

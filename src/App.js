@@ -24,6 +24,10 @@ function App() {
           <Register />
         </Route>
 
+        <Route exact path="/room/register/:pk">
+          <Register />
+        </Route>
+
         <Route path="/room/:pk">
           <Detail />
         </Route>
