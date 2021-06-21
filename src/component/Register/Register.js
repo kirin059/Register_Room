@@ -109,7 +109,7 @@ const Register = (props) => {
     }
 
     useEffect(() => {
-        let info = localStorage.getItem('users');
+        let info = sessionStorage.getItem('users');
         if (info) {
             info = JSON.parse(info);
             setDetail(info);

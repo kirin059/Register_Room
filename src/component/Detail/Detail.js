@@ -35,7 +35,7 @@ const Detail = (props) => {
         canceled: selectedRoom.canceled
    })
     
-    localStorage.setItem("users", JSON.stringify(roomInfo));
+    sessionStorage.setItem("users", JSON.stringify(roomInfo));
 
     return (
         <div className="Detail">
