@@ -11,33 +11,28 @@ import { createStore } from 'redux';
 import itemData from './itemData';
 
 
-async function ajax() {
-  const RoomItems = await axios
-    .get("./data.json")
-    .then((res) => {
-      return res.data;
-    })
-    .catch(() => {
-      console.log("fail");
-    });
+// async function ajax( {item} ) {
+//   const RoomItems = await axios
+//     .get("./data.json")
+//     .then((res) => {
+//       return res.data;
+//     })
+//     .catch(() => {
+//       console.log("fail");
+//     });
+// }
+// ajax()
 
-    console.log(RoomItems);
-}
-ajax()
+// console.log(item)
 
 // const RoomItems = axios.get("./data.json")
 //   .then((res) => { return res.data })
 //   .catch(() => { console.log('fail') })
 //   console.log(RoomItems)
 
-// let initState = RoomItems;
-// console.log(initState)
 
 let initState = itemData;
-console.log(initState)
 
-// let initState = RoomItems;
-// console.log(abc)
 
 function reducer(state = initState, action) {
   if (action.type === 'upload') {

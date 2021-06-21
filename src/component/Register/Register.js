@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 import Modal from '../Modal/Modal';
@@ -14,10 +14,11 @@ const Register = (props) => {
     let [inputs, setInputs] = useState('');
 
     let { pk } = useParams();
-    let selectedRooms = props.state.find(function(a) {
+    let selectedRoom = props.state.find(function(a) {
         return a.pk == pk;
     });
-    
+
+
     let [modal, setModal] = useState(false)
      
     function handleMonthly() {
@@ -98,6 +99,20 @@ const Register = (props) => {
         setModal(true);
         scrollPrevent()
     }
+
+    useEffect(() => {
+        let info = localStorage.getItem('users');
+        if (info == null) { info = [] }
+        else { info = JSON.parse(info) }
+        info.push(pk)
+        info = new Set(info);  // 중복제거
+        info = [...info];
+
+        localStorage.setItem('users', JSON.stringify(info))
+
+  },[])
+
+
 
     return (
         <div className="Register">

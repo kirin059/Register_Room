@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 import './Detail.scss';
@@ -17,6 +17,26 @@ const Detail = (props) => {
         roomModify.disabled="disabled"
     }
 
+   const [roomInfo, setRoomInfo] = useState({
+        img: selectedRoom.thumbnail,
+        realEstate: selectedRoom.realEstate,
+        realEstatePriceType: selectedRoom.realEstatePriceType,
+        depositAmount: selectedRoom.depositAmount,
+        address: selectedRoom.address,
+        detailAddress: selectedRoom.detailAddress,
+        leasableArea: selectedRoom.leasableArea,
+        floor: selectedRoom.floor,
+        sunlightDirection: selectedRoom.sunlightDirection,
+        realEstate: selectedRoom.realEstate,
+        maintenanceFee: selectedRoom.maintenanceFee,
+        maintenanceFeeItems: selectedRoom.maintenanceFeeItems,
+        pet: selectedRoom.pet,
+        canceled: selectedRoom.canceled
+    })
+    
+    localStorage.setItem("users", JSON.stringify(roomInfo));
+
+
     return (
         <div className="Detail">
             <div className="header">
@@ -24,34 +44,34 @@ const Detail = (props) => {
             </div>
        
             <div className="main_info">
-                <img src={selectedRoom.thumbnail} alt="room image" />
+                <img src={roomInfo.img} alt="room image" />
                 <div className="sub_info">
                     <div className="sub_info_top">
-                        <p>{selectedRoom.realEstate} / {selectedRoom.realEstatePriceType}</p>
-                        <p className="price">{selectedRoom.depositAmount}</p>
+                        <p>{roomInfo.realEstate} / {roomInfo.realEstatePriceType}</p>
+                        <p className="price">{roomInfo.depositAmount}</p>
                     </div>
                     <div className="sub_info_main">
-                        <p>주소: {selectedRoom.address} { selectedRoom.detailAddress}</p>
-                        <p>공급면적: {selectedRoom.leasableArea} m2</p>
-                        <p>해당층: {selectedRoom.floor} 층</p>
-                        <p>방향: {selectedRoom.sunlightDirection} </p>
+                        <p>주소: {roomInfo.address} { roomInfo.detailAddress}</p>
+                        <p>공급면적: {roomInfo.leasableArea} m2</p>
+                        <p>해당층: {roomInfo.floor} 층</p>
+                        <p>방향: {roomInfo.sunlightDirection} </p>
                         {
-                            selectedRoom.realEstate === "MONTHLY"
-                                ? (<p>임대료: {selectedRoom.rentAmount} 원</p>)
+                            roomInfo.realEstate === "MONTHLY"
+                                ? (<p>임대료: {roomInfo.rentAmount} 원</p>)
                                 : null
                         }
                     </div>
                     <div className="sub_info_bottom">
-                        <p>관리비: {selectedRoom.maintenanceFee} </p> 
+                        <p>관리비: {roomInfo.maintenanceFee} </p> 
                         <p>관리항목:
                          {
-                                selectedRoom.maintenanceFeeItems.map((a, i) => {
-                                return (<span style={{'marginRight': '10px'}}>{selectedRoom.maintenanceFeeItems[i]}</span>)
+                                roomInfo.maintenanceFeeItems.map((a, i) => {
+                                return (<span style={{'marginRight': '10px'}}>{roomInfo.maintenanceFeeItems[i]}</span>)
                             })
                          }
                          </p>
                         {
-                            selectedRoom.pet == true
+                            roomInfo.pet == true
                                 ? (<p>반려동물: 가능 </p>)
                                 : (<p>반려동물: 불가능 </p>)
                         }   
@@ -59,7 +79,7 @@ const Detail = (props) => {
                 </div>
             </div>
             {
-                selectedRoom.canceled === true
+                roomInfo.canceled === true
                 ? (<div>
                         <button className="roomOff" onClick={roomOff}>방내리기</button>
                         <button className="roomModify" onClick={() => { history.push('/room/register/:pk') }}>수정</button>
