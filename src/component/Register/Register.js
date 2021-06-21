@@ -1,19 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { useParams } from 'react-router';
 import Modal from '../Modal/Modal';
 import './Register.scss';
 
 const Register = (props) => {
-    // window.addEventListener("beforeunload", function (e) {
-    //     e.preventDefault();
-    //     e.returnValue = "";
-    //   });
-    
+    window.addEventListener("beforeunload", function (e) {
+        e.preventDefault();
+        e.returnValue = "";
+      });
+
     let [input, setInput] = useState('');
     let [inputs, setInputs] = useState('');
-    let { pk } = useParams();
-    let [modal, setModal] = useState(false)
+    let [modal, setModal] = useState(false);
+    let [detail, setDetail] = useState({
+        realEstate: null,
+        realEstatePriceType: null,
+        depositAmount: 0,
+        address: null,
+        rentAmount: 0,
+        detailAddress: null,
+        leasableArea:null,
+        floor: "",
+        sunlightDirection: null,
+        realEstate: null,
+        maintenanceFee: null,
+        maintenanceFeeItems: [],
+        pet: false,
+        canceled: false
+    })
      
     function handleMonthly() {
         const monthly = document.querySelector('.monthly')
@@ -96,19 +110,13 @@ const Register = (props) => {
 
     useEffect(() => {
         let info = localStorage.getItem('users');
-        if (info == null) {
-            info = [];
-        }
-        else {
+        if (info) {
             info = JSON.parse(info);
+            setDetail(info);
+            setInput(info.leasableArea)
+            setInputs(info.leasableArea / 3.31)
         }
-        
-        //info.push(pk)
-        //info = new Set(info);  // 중복제거
-        //info = [...info];
-
-        
-  },[])
+    }, [])
 
     return (
         <div className="Register">
@@ -121,8 +129,8 @@ const Register = (props) => {
                     <div className="main">
                         <div className="category">주소</div>
                         <div className="content">
-                            <input name="address" type="text" placeholder="주소" required/>
-                            <input name="detail_address" type="text" placeholder="상세주소" required/>
+                            <input name="address" type="text" placeholder="주소" value={ detail.address }/>
+                            <input name="detail_address" type="text" placeholder="상세주소" value={ detail.detailAddress }/>
                         </div>
                     </div>
                     <div className="main">
@@ -133,7 +141,7 @@ const Register = (props) => {
                             <input type="radio" id="select3" name="room" /><label for="select3">아파트</label>
                             <input type="radio" id="select4" name="room" /><label for="select4">오피스텔</label>
                         </div>
-                        </div>
+                    </div>
                     <div className="main">
                         <div className="category">거래 종류</div>
                         <div className="content_flex">
@@ -145,20 +153,20 @@ const Register = (props) => {
                     <div className="main monthly" style={{ "display": "none" }}>
                         <div className="content_flex">
                             <div className="category" style={{"backgroundColor":"#fae69d"}}>월세</div>
-                            <input type="number" placeholder="보증금(월세)" />
-                            <input type="number" placeholder="임대료(월세)" />
+                            <input type="number" placeholder="보증금(월세)" value={ detail.depositAmount }/>
+                            <input type="number" placeholder="임대료(월세)" value={ detail.rentAmount }/>
                         </div>
                     </div>
                     <div className="main jeonse" style={{ "display": "none" }}>
                         <div className="content_flex">
                             <div className="category" style={{"backgroundColor":"#fae69d"}}>전세</div>
-                            <input type="number" placeholder="보증금(전세)" />
+                            <input type="number" placeholder="보증금(전세)" value={ detail.depositAmount }/>
                         </div>
                     </div>
                     <div className="main selling" style={{ "display": "none" }}>
                         <div className="content_flex">
                             <div className="category" style={{"backgroundColor":"#fae69d"}}>매매</div>
-                            <input type="number" placeholder="매매가" />
+                            <input type="number" placeholder="매매가" value={ detail.depositAmount }/>
                         </div>
                     </div> 
                 </div>

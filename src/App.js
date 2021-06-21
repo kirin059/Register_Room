@@ -11,25 +11,19 @@ function App() {
   return (
     <div className="App">
       <Switch>
-
         <Route exact path="/">
           <Main />
         </Route>
-
         <Route exact path="/rooms">
           <List />
         </Route>
-
         <Route exact path="/room/register">
           <Register />
         </Route>
-
         <Route path="/room/:pk">
           <Detail />
         </Route>
-
-      </Switch>
-      
+      </Switch>  
     </div>
   );
 }

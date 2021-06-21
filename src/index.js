@@ -1,38 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-
 import itemData from './itemData';
 
-
-// async function ajax( {item} ) {
-//   const RoomItems = await axios
-//     .get("./data.json")
-//     .then((res) => {
-//       return res.data;
-//     })
-//     .catch(() => {
-//       console.log("fail");
-//     });
-// }
-// ajax()
-
-// console.log(item)
-
-// const RoomItems = axios.get("./data.json")
-//   .then((res) => { return res.data })
-//   .catch(() => { console.log('fail') })
-//   console.log(RoomItems)
-
-
 let initState = itemData;
-
 
 function reducer(state = initState, action) {
   if (action.type === 'upload') {
@@ -43,7 +19,6 @@ function reducer(state = initState, action) {
   }
   else if (action.type === 'download') {
     let found = itemData.filter((a) => { return a.canceled == false });
-    console.log(found)
     let setState = [...itemData]
     setState = [...found]
     return setState

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 import './Detail.scss';
@@ -12,9 +12,9 @@ const Detail = (props) => {
 
     function roomOff() {
         let mainInfo = document.querySelector('.main_info');
-        let roomModify = document.querySelector('.roomModify');
+        let roomOff = document.querySelector('.roomOff');
         mainInfo.style.display = 'none';
-        roomModify.disabled="disabled"
+        roomOff.disabled="disabled"
     }
 
    const [roomInfo, setRoomInfo] = useState({
@@ -23,6 +23,7 @@ const Detail = (props) => {
         realEstatePriceType: selectedRoom.realEstatePriceType,
         depositAmount: selectedRoom.depositAmount,
         address: selectedRoom.address,
+        rentAmount: selectedRoom.rentAmount,
         detailAddress: selectedRoom.detailAddress,
         leasableArea: selectedRoom.leasableArea,
         floor: selectedRoom.floor,
@@ -34,10 +35,7 @@ const Detail = (props) => {
         canceled: selectedRoom.canceled
    })
     
-    console.log(roomInfo)
-    
     localStorage.setItem("users", JSON.stringify(roomInfo));
-
 
     return (
         <div className="Detail">
@@ -84,9 +82,9 @@ const Detail = (props) => {
                 roomInfo.canceled === true
                 ? (<div>
                         <button className="roomOff" onClick={roomOff}>방내리기</button>
-                        <button className="roomModify" onClick={() => { history.push('/room/register/:pk') }}>수정</button>
                     </div>)
-                :<button onClick={() => { history.push('/room/register') }}>방올리기</button>
+                :(<button className="roomModify" onClick={() => {
+                    history.push('/room/register') }}>수정</button>)
             }          
         </div>
     );
