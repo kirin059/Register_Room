@@ -12,13 +12,7 @@ const Register = (props) => {
     
     let [input, setInput] = useState('');
     let [inputs, setInputs] = useState('');
-
     let { pk } = useParams();
-    let selectedRoom = props.state.find(function(a) {
-        return a.pk == pk;
-    });
-
-
     let [modal, setModal] = useState(false)
      
     function handleMonthly() {
@@ -102,17 +96,19 @@ const Register = (props) => {
 
     useEffect(() => {
         let info = localStorage.getItem('users');
-        if (info == null) { info = [] }
-        else { info = JSON.parse(info) }
-        info.push(pk)
-        info = new Set(info);  // 중복제거
-        info = [...info];
+        if (info == null) {
+            info = [];
+        }
+        else {
+            info = JSON.parse(info);
+        }
+        
+        //info.push(pk)
+        //info = new Set(info);  // 중복제거
+        //info = [...info];
 
-        localStorage.setItem('users', JSON.stringify(info))
-
+        
   },[])
-
-
 
     return (
         <div className="Register">
@@ -172,7 +168,7 @@ const Register = (props) => {
                         <div className="category">관리비</div>
                         <div className="content">
                             <input name="maintenance" type="number" placeholder="관리비 입력(전/월세)" />
-                            <div className="content_flex maintenanceFeeItems">
+                            <div className="content_flex maintenanceFeeItems" style={{borderLeft:"none"}}>
                                 <p>관리비항목<br /><span style={{'color':'#326CF9', 'fontSize':'14px'}}>(다중선택)</span></p>
                                 <input type="checkbox" id="select8" name="items" /><label for="select8">전기</label>
                                 <input type="checkbox" id="select9" name="items" /><label for="select9">가스</label>
@@ -193,7 +189,7 @@ const Register = (props) => {
                     <div className="main">
                         <div className="category">방향</div>
                         <div className="content">
-                            <div className="content_flex">
+                            <div className="content_flex" style={{borderLeft:"none"}}>
                                 <input type="radio" id="select16" name="direction"/><label for="select16">EAST(동)</label>
                                 <input type="radio" id="select17" name="direction"/><label for="select17">WEST(서)</label>
                                 <input type="radio" id="select18" name="direction" /><label for="select18">SOUTH(남)</label>

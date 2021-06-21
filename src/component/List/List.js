@@ -6,7 +6,7 @@ import './List.scss';
 const List = (props) => {
     
     let history = useHistory();
-    
+
     function showTab() {
         let tab = document.querySelector('.tab_container');
         tab.style.display = 'block'
@@ -15,7 +15,7 @@ const List = (props) => {
     return (
         <div className="List">
             <div className="header">
-                <span onMouseOver={() => { showTab() }}>방 목록 전체보기</span>
+                <span onMouseOver={() => { showTab() }}>방 목록 전체보기 (Tab👆)</span>
             </div>
             <div className="tab_container">
                 <div className="tab">

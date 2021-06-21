@@ -32,7 +32,9 @@ const Detail = (props) => {
         maintenanceFeeItems: selectedRoom.maintenanceFeeItems,
         pet: selectedRoom.pet,
         canceled: selectedRoom.canceled
-    })
+   })
+    
+    console.log(roomInfo)
     
     localStorage.setItem("users", JSON.stringify(roomInfo));
 

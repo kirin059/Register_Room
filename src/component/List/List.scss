@@ -80,3 +80,21 @@ $line_color: rgb(212, 210, 210);
         cursor: pointer;
     }   
 }
+
+@media only screen and (max-width: 480px) {
+    .List {
+        margin: 0 1%;
+        .header {
+            margin: 20px 0;
+        }
+        .info_container {
+            height: 70vh;
+        }
+        button {
+            margin: 30px 0 0;
+            .fa-plus-circle {
+                font-size: 60px;
+            }
+        }
+    }
+}

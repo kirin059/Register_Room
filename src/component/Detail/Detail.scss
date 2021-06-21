@@ -13,7 +13,6 @@ $line_color: rgb(212, 210, 210);
 
 .Detail {
     @extend .default;
-
     .header {
         margin: 10px 0;
         padding: 15px;
@@ -22,7 +21,6 @@ $line_color: rgb(212, 210, 210);
         font-size: 23px;
         font-weight: 700;
     }
-
     .main_info {
         display: flex;
         justify-content: center;
@@ -30,24 +28,20 @@ $line_color: rgb(212, 210, 210);
         padding: 30px;
         border: 1px solid $line_color;
         border-radius: 5px;
-
         img {
             margin-right: 10px;
             width: 450px;
             cursor: pointer;
         }
-
         .sub_info {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             margin-left: 50px;
-            text-align: left;
-            
+            text-align: left;     
             p {
                 margin: 0;
             }
-
             .sub_info_top {
                 margin-bottom: 30px;
                 .price {
@@ -55,13 +49,11 @@ $line_color: rgb(212, 210, 210);
                     font-weight: 700;
                 }
             }
-
             .sub_info_main {
                 margin-bottom: 30px;
             }
         }
     }
-
     button {
         margin: 50px 10px 0;
         padding: 15px;
@@ -73,9 +65,39 @@ $line_color: rgb(212, 210, 210);
         cursor: pointer;
         transition: transform 300ms ease;
     }
-
     button:hover {
         transform: scale(0.96);
         cursor: pointer;
     }   
+}
+
+@media only screen and (max-width: 480px) {
+    .Detail {
+        margin: 0 1%;
+        .header {
+            margin: 20px 0;
+        }
+        .main_info {
+            display: flex;
+            flex-direction: column;
+            img {
+                margin: 0 auto;
+                width: 350px;
+                cursor: pointer;
+            }
+            .sub_info {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin: 0;
+                text-align: center;     
+                .sub_info_main {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        button {
+            margin: 50px 10px 50px;
+        }
+    }
 }
