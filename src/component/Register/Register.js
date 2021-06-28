@@ -207,23 +207,35 @@ const Register = (props) => {
                     <div className="main">
                         <div className="category">층수</div>
                         <div className="content_flex">
-                            <input type="radio" id="select13" name="step"/><label for="select13">1~80층</label>
-                            <input type="radio" id="select14" name="step"/><label for="select14">옥탑</label>
-                            <input type="radio" id="select15" name="step"/><label for="select15">반지하</label>
+                            {/* checked 다시 점검 */}
+                            <input type="radio" id="select13" name="floor"
+                            checked={ detail.floor === String(1) }/><label for="select13">1~80층</label>
+                            <input type="radio" id="select14" name="floor"
+                            checked={ detail.floor === "top" }/><label for="select14">옥탑</label>
+                            <input type="radio" id="select15" name="floor"
+                            checked={ detail.floor === "basement" }/><label for="select15">반지하</label>
                         </div>
                     </div>
                     <div className="main">
                         <div className="category">방향</div>
                         <div className="content">
                             <div className="content_flex" style={{borderLeft:"none"}}>
-                                <input type="radio" id="select16" name="direction"/><label for="select16">EAST(동)</label>
-                                <input type="radio" id="select17" name="direction"/><label for="select17">WEST(서)</label>
-                                <input type="radio" id="select18" name="direction" /><label for="select18">SOUTH(남)</label>
-                                <input type="radio" id="select19" name="direction" /><label for="select19">NORTH(북)</label>
-                                <input type="radio" id="select20" name="direction" /><label for="select20">SOUTH_EAST(남동)</label>
-                                <input type="radio" id="select21" name="direction" /><label for="select21">SOUTH_WEST(남서)</label>
-                                <input type="radio" id="select22" name="direction" /><label for="select22">NORTH_WEST(북서)</label>
-                                <input type="radio" id="select23" name="direction" /><label for="select23">NORTH_EAST(북동)</label>
+                                <input type="radio" id="select16" name="direction"
+                                checked={ detail.sunlightDirection === "EAST" }/><label for="select16">EAST(동)</label>
+                                <input type="radio" id="select17" name="direction"
+                                checked={ detail.sunlightDirection === "WEST" }/><label for="select17">WEST(서)</label>
+                                <input type="radio" id="select18" name="direction"
+                                checked={ detail.sunlightDirection === "SOUTH" }/><label for="select18">SOUTH(남)</label>
+                                <input type="radio" id="select19" name="direction"
+                                checked={ detail.sunlightDirection === "NORTH" }/><label for="select19">NORTH(북)</label>
+                                <input type="radio" id="select20" name="direction"
+                                checked={ detail.sunlightDirection === "SOUTH_EAST" }/><label for="select20">SOUTH_EAST(남동)</label>
+                                <input type="radio" id="select21" name="direction"
+                                checked={ detail.sunlightDirection === "SOUTH_WEST" }/><label for="select21">SOUTH_WEST(남서)</label>
+                                <input type="radio" id="select22" name="direction"
+                                checked={ detail.sunlightDirection === "NORTH_WEST" }/><label for="select22">NORTH_WEST(북서)</label>
+                                <input type="radio" id="select23" name="direction"
+                                checked={ detail.sunlightDirection === "NORTH_EAST" }/><label for="select23">NORTH_EAST(북동)</label>
                             </div>
                         </div>
                     </div>
@@ -248,8 +260,10 @@ const Register = (props) => {
                     <div className="main">
                         <div className="category">반려동물</div>
                         <div className="content_flex">
-                            <input type="radio" id="select24" name="animal"/><label for="select24">가능</label>
-                            <input type="radio" id="select25" name="animal"/><label for="select25">불가능</label>
+                            <input type="radio" id="select24" name="animal"
+                            checked={ detail.pet === true }/><label for="select24">가능</label>
+                            <input type="radio" id="select25" name="animal"
+                            checked={ detail.pet === false }/><label for="select25">불가능</label>
                         </div>
                     </div>
                     <div className="main">
