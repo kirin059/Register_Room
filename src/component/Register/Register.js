@@ -28,7 +28,7 @@ const Register = (props) => {
         pet: false,
         canceled: false
     })
-     
+         
     function handleMonthly() {
         const monthly = document.querySelector('.monthly')
         const jeonse = document.querySelector('.jeonse')

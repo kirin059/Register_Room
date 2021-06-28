@@ -1,10 +1,10 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom';
-import './App.scss';
 import Detail from './component/Detail/Detail';
 import List from './component/List/List';
 import Main from './component/Main/Main';
 import Register from './component/Register/Register';
+import './App.scss';
 
 function App() {
 
