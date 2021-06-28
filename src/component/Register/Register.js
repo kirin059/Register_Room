@@ -13,18 +13,17 @@ const Register = (props) => {
     let [inputs, setInputs] = useState('');
     let [modal, setModal] = useState(false);
     let [detail, setDetail] = useState({
+        address: null,
+        detailAddress: null,
         realEstate: null,
         realEstatePriceType: null,
         depositAmount: 0,
-        address: null,
         rentAmount: 0,
-        detailAddress: null,
-        leasableArea:null,
-        floor: "",
-        sunlightDirection: null,
-        realEstate: null,
-        maintenanceFee: null,
+        maintenanceFee: 0,
         maintenanceFeeItems: [],
+        floor: null,
+        sunlightDirection: null,
+        leasableArea:0,
         pet: false,
         canceled: false
     })
@@ -136,18 +135,32 @@ const Register = (props) => {
                     <div className="main">
                         <div className="category">매물 종류</div>
                         <div className="content_flex">
-                            <input type="radio" id="select1" name="room" /><label for="select1">원룸</label>
-                            <input type="radio" id="select2" name="room"/><label for="select2">투룸</label>
-                            <input type="radio" id="select3" name="room" /><label for="select3">아파트</label>
-                            <input type="radio" id="select4" name="room" /><label for="select4">오피스텔</label>
+                            <input type="radio" id="select1" name="realEstate"
+                                checked={ detail.realEstate === 'SEMI_BASEMENT' }
+                                /><label for="select1">원룸</label>
+                            <input type="radio" id="select2" name="realEstate"
+                             checked={detail.realEstate === 'SEMI_BASEMENTs' }
+                            /><label for="select2">투룸</label>
+                            <input type="radio" id="select3" name="realEstate"
+                             checked={ detail.realEstate === 'APARTMENT' }
+                             value='APARTMENT'/><label for="select3">아파트</label>
+                            <input type="radio" id="select4" name="realEstate"
+                            checked={ detail.realEstate === 'EFFICIENCY_APARTMENT' }
+                            value='EFFICIENCY_APARTMENT'/><label for="select4">오피스텔</label>
                         </div>
                     </div>
                     <div className="main">
                         <div className="category">거래 종류</div>
                         <div className="content_flex">
-                            <input type="radio" id="select5" name="price" onClick={ handleMonthly } /><label for="select5">월세</label>
-                            <input type="radio" id="select6" name="price" onClick={ handleJeonse } /><label for="select6">전세</label>
-                            <input type="radio" id="select7" name="price" onClick={ handleSelling } /><label for="select7">매매</label>
+                            <input type="radio" id="select5" name="realEstatePriceType"
+                                checked={ detail.realEstatePriceType === 'MONTHLY' }
+                                onClick={handleMonthly} /><label for="select5">월세</label>
+                            <input type="radio" id="select6" name="realEstatePriceType"
+                                checked={detail.realEstatePriceType === 'JEONSE'}
+                                onClick={handleJeonse} /><label for="select6">전세</label>
+                            <input type="radio" id="select7" name="realEstatePriceType"
+                                checked={detail.realEstatePriceType === 'SELLING'}
+                                onClick={handleSelling} /><label for="select7">매매</label>
                         </div>
                     </div>
                     <div className="main monthly" style={{ "display": "none" }}>
@@ -175,14 +188,19 @@ const Register = (props) => {
                     <div className="main" id="maintenance">
                         <div className="category">관리비</div>
                         <div className="content">
-                            <input name="maintenance" type="number" placeholder="관리비 입력(전/월세)" />
+                            <input name="maintenance" type="number" placeholder="관리비 입력(전/월세)" value={ detail.maintenanceFee }/>
                             <div className="content_flex maintenanceFeeItems" style={{borderLeft:"none"}}>
                                 <p>관리비항목<br /><span style={{'color':'#326CF9', 'fontSize':'14px'}}>(다중선택)</span></p>
-                                <input type="checkbox" id="select8" name="items" /><label for="select8">전기</label>
-                                <input type="checkbox" id="select9" name="items" /><label for="select9">가스</label>
-                                <input type="checkbox" id="select10" name="items" /><label for="select10">수도</label>
-                                <input type="checkbox" id="select11" name="items" /><label for="select11">인터넷</label>
-                                <input type="checkbox" id="select12" name="items" /><label for="select12">TV</label>
+                                <input type="checkbox" id="select8" name="items"
+                                checked={ detail.maintenanceFeeItems.includes("ELECTRIC") }/><label for="select8">전기</label>
+                                <input type="checkbox" id="select9" name="items"
+                                checked={ detail.maintenanceFeeItems.includes("GAS") }/><label for="select9">가스</label>
+                                <input type="checkbox" id="select10" name="items"
+                                checked={ detail.maintenanceFeeItems.includes("WATERWORKS") }/><label for="select10">수도</label>
+                                <input type="checkbox" id="select11" name="items"
+                                checked={ detail.maintenanceFeeItems.includes("INTERNET") }/><label for="select11">인터넷</label>
+                                <input type="checkbox" id="select12" name="items"
+                                checked={ detail.maintenanceFeeItems.includes("TV") }/><label for="select12">TV</label>
                             </div>
                         </div>
                     </div>  

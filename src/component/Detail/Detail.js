@@ -19,18 +19,17 @@ const Detail = (props) => {
 
    const [roomInfo, setRoomInfo] = useState({
         img: selectedRoom.thumbnail,
+        address: selectedRoom.address,
+        detailAddress: selectedRoom.detailAddress,
         realEstate: selectedRoom.realEstate,
         realEstatePriceType: selectedRoom.realEstatePriceType,
         depositAmount: selectedRoom.depositAmount,
-        address: selectedRoom.address,
         rentAmount: selectedRoom.rentAmount,
-        detailAddress: selectedRoom.detailAddress,
-        leasableArea: selectedRoom.leasableArea,
-        floor: selectedRoom.floor,
-        sunlightDirection: selectedRoom.sunlightDirection,
-        realEstate: selectedRoom.realEstate,
         maintenanceFee: selectedRoom.maintenanceFee,
         maintenanceFeeItems: selectedRoom.maintenanceFeeItems,
+        floor: selectedRoom.floor,
+        sunlightDirection: selectedRoom.sunlightDirection,
+        leasableArea: selectedRoom.leasableArea,       
         pet: selectedRoom.pet,
         canceled: selectedRoom.canceled
    })
