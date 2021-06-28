@@ -24,7 +24,7 @@ const Register = (props) => {
         floor: null,
         sunlightDirection: null,
         leasableArea:0,
-        pet: false,
+        pet: null,
         canceled: false
     })
          
@@ -77,10 +77,10 @@ const Register = (props) => {
         let detailAddress = document.querySelector('input[name=detail_address]')
         let maintenance = document.querySelector('input[name=maintenance]')
         let area = document.querySelector('input[name=area_p]')
-        let room = document.querySelectorAll('input[name=room]')
-        let price = document.querySelectorAll('input[name=price]')
+        let room = document.querySelectorAll('input[name=realEstate]')
+        let price = document.querySelectorAll('input[name=realEstatePriceType]')
         let item = document.querySelectorAll('input[name=items]')
-        let step = document.querySelectorAll('input[name=step]')
+        let floor = document.querySelectorAll('input[name=floor]')
         let direction = document.querySelectorAll('input[name=direction]')
         let animal = document.querySelectorAll('input[name=animal]')
         let car = document.querySelectorAll('input[name=car]')
@@ -90,7 +90,7 @@ const Register = (props) => {
             (!room[0].checked && !room[1].checked && !room[2].checked && !room[3].checked) ||
             (!price[0].checked && !price[1].checked && !price[2].checked) ||
             (!item[0].checked && !item[1].checked && !item[2].checked && !item[3].checked && !item[4].checked) ||
-            (!step[0].checked && !step[0].checked && !step[0].checked) ||
+            (!floor[0].checked && !floor[0].checked && !floor[0].checked) ||
             (!direction[0].checked && !direction[1].checked && !direction[2].checked && !direction[3].checked && !direction[4].checked && !direction[5].checked && !direction[6].checked && !direction[7].checked) ||
             (!animal[0].checked && !animal[1].checked) || (!car[0].checked && !car[1].checked)) {
             alert("모든 항목을 입력해주세요");
