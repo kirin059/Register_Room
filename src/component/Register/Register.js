@@ -25,6 +25,7 @@ const Register = (props) => {
         sunlightDirection: null,
         leasableArea:0,
         pet: null,
+        car: false,
         canceled: false
     })
          
@@ -120,7 +121,6 @@ const Register = (props) => {
 
         }
     }, [])
-
 
     return (
         <div className="Register">
@@ -276,8 +276,10 @@ const Register = (props) => {
                     <div className="main">
                         <div className="category">주차 여부</div>
                         <div className="content_flex">
-                            <input type="radio" id="select26" name="car"/><label for="select26">가능</label>
-                            <input type="radio" id="select27" name="car"/><label for="select27">불가능</label>
+                            <input type="radio" id="select26" name="car"
+                            checked={ detail.car == true ? true : null}/><label for="select26">가능</label>
+                            <input type="radio" id="select27" name="car"
+                            checked={ detail.car == false ? true : null}/><label for="select27">불가능</label>
                         </div>
                     </div>
                 </div>

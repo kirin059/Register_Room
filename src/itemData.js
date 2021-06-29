@@ -13,6 +13,7 @@ const roomItems = [
         "sunlightDirection": "NORTH", // 방향
         "leasableArea": 119.00, // 평수, m2
         "pet": true, // 애완동물 여부
+        "car": true,
         "thumbnail": "https://cdn.pixabay.com/photo/2016/11/22/23/38/apartment-1851201_960_720.jpg", // 썸네일 주소
         "canceled": false // 올린방, 내린방 여부
       },
@@ -30,6 +31,7 @@ const roomItems = [
         "sunlightDirection": "SOUTH",
         "leasableArea": 33.05,
         "pet": false,
+        "car": false,
         "thumbnail": "https://media.istockphoto.com/photos/stylish-scandinavian-living-room-with-design-mint-sofa-furnitures-up-picture-id1188452511?s=612x612",
         "canceled": false
       },
@@ -47,6 +49,7 @@ const roomItems = [
         "sunlightDirection": "SOUTH_EAST",
         "leasableArea": 231.40,
         "pet": false,
+        "car": true,
         "thumbnail": "https://cdn.pixabay.com/photo/2015/10/20/18/57/furniture-998265_960_720.jpg",
         "canceled": true
       },
@@ -64,6 +67,7 @@ const roomItems = [
         "sunlightDirection": "NORTH_WEST",
         "leasableArea": 301.50,
         "pet": false,
+        "car": true,
         "thumbnail": "https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_960_720.jpg",
         "canceled": true
       },
@@ -81,6 +85,7 @@ const roomItems = [
         "sunlightDirection": "EAST",
         "leasableArea": 550.40,
         "pet": true,
+        "car": false,
         "thumbnail": "https://cdn.pixabay.com/photo/2014/08/11/21/40/bedroom-416062_960_720.jpg",
         "canceled": false
       }

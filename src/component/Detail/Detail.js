@@ -31,6 +31,7 @@ const Detail = (props) => {
         sunlightDirection: selectedRoom.sunlightDirection,
         leasableArea: selectedRoom.leasableArea,       
         pet: selectedRoom.pet,
+        car: selectedRoom.car,
         canceled: selectedRoom.canceled
    })
     
@@ -73,7 +74,12 @@ const Detail = (props) => {
                             roomInfo.pet == true
                                 ? (<p>반려동물: 가능 </p>)
                                 : (<p>반려동물: 불가능 </p>)
-                        }   
+                        }
+                        {
+                            roomInfo.car == true
+                                ? (<p>주차: 가능 </p>)
+                                : (<p>주차: 불가능 </p>)
+                        } 
                     </div> 
                 </div>
             </div>

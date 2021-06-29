@@ -14,11 +14,11 @@ $line_color: rgb(212, 210, 210);
 .List {
     @extend .default;
     .header {
-        margin: 10px 0;
+        margin: 10px 0 30px;
         padding: 15px;
         background-color: $main_color;
         border-radius: 5px;
-        font-size: 23px;
+        font-size: 30px;
         font-weight: 700;
     }
     .tab_container {

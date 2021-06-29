@@ -15,7 +15,7 @@ const List = (props) => {
     return (
         <div className="List">
             <div className="header">
-                <span onMouseOver={() => { showTab() }}>방 목록 전체보기 (Tab👆)</span>
+                <span onMouseOver={() => { showTab() }}>방 목록 전체보기 👆</span>
             </div>
             <div className="tab_container">
                 <div className="tab">
