@@ -115,11 +115,12 @@ const Register = (props) => {
             setInput(info.leasableArea)
             setInputs(info.leasableArea / 3.31)
         }
+
+        return () => {
+
+        }
     }, [])
 
-    function handleFloor() {
-        
-    }
 
     return (
         <div className="Register">
