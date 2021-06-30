@@ -1,16 +1,22 @@
-# [콜버스랩] 방 등록 구현하기
-
+# [방 등록] 기능 구현
+* 방 등록 기능 구현 프로젝트
 ---
 
-### 구현하지 못한 기능에 대해서 생각하신 구현 방법에 대해 서술
+## `Skill Stack`
 
-1. 입력하는 중간에 페이지에서 나가는 경우 경우 다시 접속할 때 이어서 입력여부를 받습니다.
-- 페이지 unmount 시, sessionStorage에 입력 state 저장.
-- 재접속 시, "이어서 입력여부" 확인하는 모달창 on.
-- true면 sessionStorage 저장된 state로 초기화 / false면 기본값(null, 0, "" 등)으로 초기화
+* HTML5 / CSS3 / Javascript
+* React: Functional Component
+* Redux
+* Sass
+* react-router-dom
 
-2. 방이 내려져 있는 경우 - 이전에 입력한 내용을 수정해서 올리기가 가능합니다.
-- radiobox(택1) 선택 기능은 selected 구현. 조건은 name === state
-- checkbox 선택 기능은 selected 구현. 조건은 checked 된 값(name) 배열에 담아서 포함된 요소만 checked
+## `Function implementation`
+
+* Tap을 통해 '올린방' 과 '내린방' 데이터 분리하여 보여주기
+* 각 방의 상세 페이지(Detail) 데이터바인딩 및 SessionStorage를 통해 데이터 수정 기능 구현 
+* Form을 활용한 다양한 입력(input) 기능 구현
+* 방 등록 관련한 전체 form 데이터 기입 완료 시, 방 등록 완료 모달 보여주기 
+
+
 
 
