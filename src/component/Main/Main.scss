@@ -31,6 +31,7 @@ $point_color: #546e7a;
             font-weight: 600;
         }
         button {
+            margin-bottom: 5px;
             padding: 20px;
             background-color: $main_color;
             border: none;
@@ -58,12 +59,13 @@ $point_color: #546e7a;
             display: flex;
             list-style: none;
             padding: 0;
-            overflow: auto;
+            overflow: hidden;
             li {
                 img {
                     margin-left: 15px;
                     width: 300px;
                     height: 200px;
+                    cursor: pointer;
                 }
             }
         }

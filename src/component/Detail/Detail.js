@@ -14,11 +14,12 @@ const Detail = (props) => {
         let mainInfo = document.querySelector('.main_info');
         let roomOff = document.querySelector('.roomOff');
         mainInfo.style.display = 'none';
+        mainInfo.innerHTML = '방올리기';
         roomOff.disabled="disabled"
     }
 
    const [roomInfo, setRoomInfo] = useState({
-        img: selectedRoom.thumbnail,
+        thumbnail: selectedRoom.thumbnail,
         address: selectedRoom.address,
         detailAddress: selectedRoom.detailAddress,
         realEstate: selectedRoom.realEstate,
@@ -44,7 +45,7 @@ const Detail = (props) => {
             </div>
        
             <div className="main_info">
-                <img src={roomInfo.img} alt="room image" />
+                <img src={roomInfo.thumbnail} alt="room image" />
                 <div className="sub_info">
                     <div className="sub_info_top">
                         <p>{roomInfo.realEstate} / {roomInfo.realEstatePriceType}</p>

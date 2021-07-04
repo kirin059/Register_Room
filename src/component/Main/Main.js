@@ -22,7 +22,9 @@ const Main = (props) => {
                     {
                         props.state.map((a,i) => {
                             return (
-                                <li><img src={props.state[i].thumbnail} /></li>
+                                <li><img src={props.state[i].thumbnail} onClick={() => {
+                                    history.push("/rooms")
+                                }}/></li>
                             )
                         })
                     }
