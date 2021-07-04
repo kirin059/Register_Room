@@ -1,5 +1,39 @@
+$main_color: #fccc1e;
+$sub_color: #bdbdbd;
+$line_color: #efefef;
+$base_color: rgb(235, 230, 230);
+$point_color: #546e7a;
+
 .App {
   text-align: center;
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 70px;
+    width: 100%;
+    height: 85px;
+    background-color: $main_color;
+    .nav_title {
+      padding-top: 8px;
+      font-size: 45px;
+      font-weight: 900;
+      cursor: pointer;
+      .fa-house-user {
+        color: $point_color;
+        padding-right: 18px;
+      }
+    }
+    .nav_content {
+      display: flex;
+      p {
+        margin: 0;
+        padding: 20px 35px 0 0;
+        font-size: 25px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .App-logo {

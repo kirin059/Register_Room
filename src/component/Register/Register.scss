@@ -2,6 +2,7 @@ $main_color: #fccc1e;
 $sub_color: rgb(170, 169, 169);
 $line_color: rgb(212, 210, 210);
 $base_color: rgb(235, 230, 230);
+$point_color: #546e7a;
 
 .default {
     margin: 5px 20% 0;
@@ -17,9 +18,8 @@ $base_color: rgb(235, 230, 230);
     .header {
         margin: 10px 0 30px;
         padding: 15px;
-        background-color: $main_color;
         border-radius: 5px;
-        font-size: 30px;
+        font-size: 40px;
         font-weight: 700;
     }
     form {
@@ -32,9 +32,10 @@ $base_color: rgb(235, 230, 230);
             border-radius: 5px;
             header {
                 padding: 13px;
-                background-color: $line_color;
+                color: white;
+                background-color: $point_color;
                 border-bottom: 1px solid #888;
-                font-size: 23px;
+                font-size: 24px;
                 font-weight: 700;
             }
             .main {

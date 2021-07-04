@@ -1,7 +1,7 @@
 [
     {
         "pk": 1, 
-        "address": "서울 성동구 왕십리로 125", 
+        "address": "서울 관악구 행복로 125", 
         "detailAddress": "KD타워 101호", 
         "realEstate": "APARTMENT", 
         "realEstatePriceType": "JEONSE", 
@@ -18,7 +18,7 @@
       },
       {
         "pk": 2,
-        "address": "서울 성동구 왕십리로 125",
+        "address": "서울 관악구 행복로 125",
         "detailAddress": "KD타워 반지하",
         "realEstate": "SEMI_BASEMENT",
         "realEstatePriceType": "SELLING",
@@ -35,7 +35,7 @@
       },
       {
         "pk": 3,
-        "address": "서울 성동구 왕십리로 125",
+        "address": "서울 관악구 행복로 125",
         "detailAddress": "KD타워 710호",
         "realEstate": "EFFICIENCY_APARTMENT",
         "realEstatePriceType": "MONTHLY",

@@ -1,7 +1,7 @@
 const roomItems = [
     {
         "pk": 1, 
-        "address": "서울 성동구 왕십리로 125", // 주소
+        "address": "서울 관악구 행복로 96", // 주소
         "detailAddress": "KD타워 101호", // 상세주소
         "realEstate": "APARTMENT", // 매물종류
         "realEstatePriceType": "JEONSE", // 가격종류
@@ -19,7 +19,7 @@ const roomItems = [
       },
       {
         "pk": 2,
-        "address": "서울 성동구 왕십리로 125",
+        "address": "서울 관악구 행복로 83",
         "detailAddress": "KD타워 반지하",
         "realEstate": "SEMI_BASEMENT",
         "realEstatePriceType": "SELLING",
@@ -37,7 +37,7 @@ const roomItems = [
       },
       {
         "pk": 3,
-        "address": "서울 성동구 왕십리로 125",
+        "address": "서울 관악구 행복로 100",
         "detailAddress": "KD타워 710호",
         "realEstate": "EFFICIENCY_APARTMENT",
         "realEstatePriceType": "MONTHLY",
@@ -55,7 +55,7 @@ const roomItems = [
       },
       {
         "pk": 4,
-        "address": "서울 성동구 왕십리로 123",
+        "address": "서울 관악구 행복로 123",
         "detailAddress": "성동아파트 101호",
         "realEstate": "APARTMENT",
         "realEstatePriceType": "MONTHLY",
@@ -73,7 +73,7 @@ const roomItems = [
       },
       {
         "pk": 5,
-        "address": "서울 성동구 왕십리로 120",
+        "address": "서울 관악구 행복로 120",
         "detailAddress": "청동오피스텔 510호",
         "realEstate": "EFFICIENCY_APARTMENT",
         "realEstatePriceType": "JEONSE", 
