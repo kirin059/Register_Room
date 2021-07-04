@@ -88,6 +88,24 @@ const roomItems = [
         "car": false,
         "thumbnail": "https://cdn.pixabay.com/photo/2014/08/11/21/40/bedroom-416062_960_720.jpg",
         "canceled": false
+      },
+      {
+        "pk": 6,
+        "address": "서울 관악구 행복로 32",
+        "detailAddress": "행복아파트 103호",
+        "realEstate": "EFFICIENCY_APARTMENT",
+        "realEstatePriceType": "월세", 
+        "depositAmount": 1200000000, 
+        "rentAmount": 3500000,
+        "maintenanceFee": 500000, 
+        "maintenanceFeeItems": ["ELECTRIC", "WATERWORKS", "INTERNET", "TV"],
+        "floor": "1",
+        "sunlightDirection": "SOUTH_WEST",
+        "leasableArea": 800.40,
+        "pet": false,
+        "car": true,
+        "thumbnail": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+        "canceled": false
       }
 ];
   

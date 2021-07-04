@@ -8,7 +8,11 @@ const Register = (props) => {
         e.preventDefault();
         e.returnValue = "";
       });
-
+    let [address, setAdress] = useState('');
+    let [detailAddress, setDetailAddress] = useState('');
+    let [maintenanceFee, setMaintenanceFee] = useState('');
+    let [deposit, setDeposit] = useState('');
+    let [rentFee, setRentFee] = useState('');
     let [input, setInput] = useState('');
     let [inputs, setInputs] = useState('');
     let [modal, setModal] = useState(false);
@@ -113,8 +117,13 @@ const Register = (props) => {
         if (info) {
             info = JSON.parse(info);
             setDetail(info);
-            setInput(info.leasableArea)
-            setInputs(info.leasableArea / 3.31)
+            setAdress(info.address);
+            setDetailAddress(info.detailAddress);
+            setMaintenanceFee(info.maintenanceFee);
+            setDeposit(info.depositAmount);
+            setRentFee(info.rentAmount);
+            setInput(info.leasableArea);
+            setInputs(info.leasableArea / 3.31);
         }
 
         return () => {
@@ -133,8 +142,8 @@ const Register = (props) => {
                     <div className="main">
                         <div className="category">주소</div>
                         <div className="content">
-                            <input name="address" type="text" placeholder="주소" value={ detail.address }/>
-                            <input name="detail_address" type="text" placeholder="상세주소" value={ detail.detailAddress }/>
+                            <input name="address" type="text" placeholder="주소" onChange={ (e) => {setAdress(e.target.value)} } value={ address }/>
+                            <input name="detail_address" type="text" placeholder="상세주소" onChange={ (e) => {setDetailAddress(e.target.value)} } value={ detailAddress }/>
                         </div>
                     </div>
                     <div className="main">
@@ -171,21 +180,21 @@ const Register = (props) => {
                     </div>
                     <div className="main monthly" style={{ "display": "none" }}>
                         <div className="content_flex">
-                            <div className="category" style={{"backgroundColor":"#fae69d"}}>월세</div>
-                            <input type="number" placeholder="보증금(월세)" value={ detail.depositAmount }/>
-                            <input type="number" placeholder="임대료(월세)" value={ detail.rentAmount }/>
+                            <div className="category" style={{"backgroundColor":"#fae69d"}}>월세 <br/>보증금/임대료</div>
+                            <input type="number" placeholder="보증금(월세)" onChange={ (e) => {setDeposit(e.target.value)} } value={ deposit }/>
+                            <input type="number" placeholder="임대료(월세)" onChange={ (e) => {setRentFee(e.target.value)} } value={ rentFee }/>
                         </div>
                     </div>
                     <div className="main jeonse" style={{ "display": "none" }}>
                         <div className="content_flex">
-                            <div className="category" style={{"backgroundColor":"#fae69d"}}>전세</div>
-                            <input type="number" placeholder="보증금(전세)" value={ detail.depositAmount }/>
+                            <div className="category" style={{"backgroundColor":"#fae69d"}}>전세 보증금</div>
+                            <input type="number" placeholder="보증금(전세)" onChange={ (e) => {setDeposit(e.target.value)} } value={ deposit }/>
                         </div>
                     </div>
                     <div className="main selling" style={{ "display": "none" }}>
                         <div className="content_flex">
-                            <div className="category" style={{"backgroundColor":"#fae69d"}}>매매</div>
-                            <input type="number" placeholder="매매가" value={ detail.depositAmount }/>
+                            <div className="category" style={{"backgroundColor":"#fae69d"}}>매매가</div>
+                            <input type="number" placeholder="매매가" onChange={ (e) => {setDeposit(e.target.value)} } value={ deposit }/>
                         </div>
                     </div> 
                 </div>
@@ -194,7 +203,7 @@ const Register = (props) => {
                     <div className="main" id="maintenance">
                         <div className="category">관리비</div>
                         <div className="content">
-                            <input name="maintenance" type="number" placeholder="관리비 입력(전/월세)" value={ detail.maintenanceFee }/>
+                            <input name="maintenance" type="text" placeholder="관리비 입력(전/월세)" onChange={ (e) => {setMaintenanceFee(e.target.value)} } value={ maintenanceFee }/>
                             <div className="content_flex maintenanceFeeItems" style={{borderLeft:"none"}}>
                                 <p>관리비항목<br /><span style={{'color':'#326CF9', 'fontSize':'14px'}}>(다중선택)</span></p>
                                 <input type="checkbox" id="select8" name="items"
