@@ -23,25 +23,49 @@ $point_color: #546e7a;
     align-items: center;
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
-    h1 {
-        margin: 0 0 100px;
-        font-size: 40px;
-        font-weight: 600;
+    .introduce {
+        overflow: hidden;
+        h1 {
+            margin: 0 0 20%;
+            font-size: 40px;
+            font-weight: 600;
+        }
+        button {
+            padding: 20px;
+            background-color: $main_color;
+            border: none;
+            border-radius: 10px;
+            font-size: 30px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: transform 300ms ease;
+            overflow: hidden;
+        }  
+        button:hover {
+            transform: scale(1.1);
+            overflow: hidden;
+        }    
     }
-    button {
-        padding: 20px;
-        background-color: $main_color;
-        border: none;
-        border-radius: 10px;
-        font-size: 30px;
-        font-weight: 900;
-        cursor: pointer;
-        transition: transform 300ms ease;
-        overflow: hidden;
-    }  
-    button:hover {
-        transform: scale(1.1);
-        overflow: hidden;
-    }    
+    .recommend {
+        width: 80vw;
+        margin: 8% 0 0;
+        p {
+            margin: 0 0 1% 15px;
+            text-align: left;
+            font-size: 23px;
+        }
+        ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            overflow: auto;
+            li {
+                img {
+                    margin-left: 15px;
+                    width: 300px;
+                    height: 200px;
+                }
+            }
+        }
+    }
 }
