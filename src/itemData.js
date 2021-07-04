@@ -4,7 +4,7 @@ const roomItems = [
         "address": "서울 관악구 행복로 96", // 주소
         "detailAddress": "KD타워 101호", // 상세주소
         "realEstate": "APARTMENT", // 매물종류
-        "realEstatePriceType": "JEONSE", // 가격종류
+        "realEstatePriceType": "전세", // 가격종류
         "depositAmount": 200000000, // 보증금 또는 매매가
         "rentAmount": 0, // 임대료
         "maintenanceFee": 100000, // 관리비
@@ -22,11 +22,11 @@ const roomItems = [
         "address": "서울 관악구 행복로 83",
         "detailAddress": "KD타워 반지하",
         "realEstate": "SEMI_BASEMENT",
-        "realEstatePriceType": "SELLING",
+        "realEstatePriceType": "매매",
         "depositAmount": 500000000,
         "rentAmount": 0,
         "maintenanceFee": 0,
-        "maintenanceFeeItems": [],
+        "maintenanceFeeItems": ["ELECTRIC"],
         "floor": "1",
         "sunlightDirection": "SOUTH",
         "leasableArea": 33.05,
@@ -40,12 +40,12 @@ const roomItems = [
         "address": "서울 관악구 행복로 100",
         "detailAddress": "KD타워 710호",
         "realEstate": "EFFICIENCY_APARTMENT",
-        "realEstatePriceType": "MONTHLY",
+        "realEstatePriceType": "월세",
         "depositAmount": 200000000,
         "rentAmount": 1000000,
         "maintenanceFee": 50000,
         "maintenanceFeeItems": ["ELECTRIC", "WATERWORKS"],
-        "floor": "7",
+        "floor": "basement",
         "sunlightDirection": "SOUTH_EAST",
         "leasableArea": 231.40,
         "pet": false,
@@ -58,12 +58,12 @@ const roomItems = [
         "address": "서울 관악구 행복로 123",
         "detailAddress": "성동아파트 101호",
         "realEstate": "APARTMENT",
-        "realEstatePriceType": "MONTHLY",
+        "realEstatePriceType": "월세",
         "depositAmount": 300000000,
         "rentAmount": 2000000,
         "maintenanceFee": 80000,
         "maintenanceFeeItems": ["ELECTRIC", "WATERWORKS", "INTERNET"],
-        "floor": "1",
+        "floor": "top",
         "sunlightDirection": "NORTH_WEST",
         "leasableArea": 301.50,
         "pet": false,
@@ -76,12 +76,12 @@ const roomItems = [
         "address": "서울 관악구 행복로 120",
         "detailAddress": "청동오피스텔 510호",
         "realEstate": "EFFICIENCY_APARTMENT",
-        "realEstatePriceType": "JEONSE", 
+        "realEstatePriceType": "전세", 
         "depositAmount": 800000000, 
         "rentAmount": 0,
         "maintenanceFee": 200000, 
         "maintenanceFeeItems": ["ELECTRIC", "WATERWORKS", "INTERNET", "TV"],
-        "floor": "5",
+        "floor": "top",
         "sunlightDirection": "EAST",
         "leasableArea": 550.40,
         "pet": true,

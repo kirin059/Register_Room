@@ -159,13 +159,13 @@ const Register = (props) => {
                         <div className="category">거래 종류</div>
                         <div className="content_flex">
                             <input type="radio" id="select5" name="realEstatePriceType"
-                                checked={ detail.realEstatePriceType === 'MONTHLY' ? true : null}
+                                checked={ detail.realEstatePriceType === '월세' ? true : null}
                                 onClick={handleMonthly} /><label for="select5">월세</label>
                             <input type="radio" id="select6" name="realEstatePriceType"
-                                checked={detail.realEstatePriceType === 'JEONSE' ? true : null}
+                                checked={detail.realEstatePriceType === '전세' ? true : null}
                                 onClick={handleJeonse} /><label for="select6">전세</label>
                             <input type="radio" id="select7" name="realEstatePriceType"
-                                checked={detail.realEstatePriceType === 'SELLING' ? true : null}
+                                checked={detail.realEstatePriceType === '매매' ? true : null}
                                 onClick={handleSelling} /><label for="select7">매매</label>
                         </div>
                     </div>
