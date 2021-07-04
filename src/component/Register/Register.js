@@ -25,7 +25,7 @@ const Register = (props) => {
         sunlightDirection: null,
         leasableArea:0,
         pet: null,
-        car: false,
+        car: null,
         canceled: false
     })
          
