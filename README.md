@@ -2,7 +2,7 @@
 * 부동산 웹사이트 제작 프로젝트
 
 
-![image](https://user-images.githubusercontent.com/71425369/122819757-cfdbe200-d315-11eb-945f-3e3eeb580352.png)
+![방방_이미지](https://user-images.githubusercontent.com/71425369/124382331-d6992a80-dd01-11eb-984e-05d3adb987c7.PNG)
 
 ## `Skill Stack`
 
@@ -11,7 +11,6 @@
 * Redux
 * Sass
 * react-router-dom
-* axios
 
 ## `Implementation details`
 
@@ -29,6 +28,7 @@
 * json 데이터 파일 생성 및 데이터를 활용하여 모든 페이지에 데이터 바인딩 
 * SessionStorage를 통해 데이터 수정 기능 구현 >> input value값 데이터 고정 및 추가 수정 기능 
 * Form을 활용한 다양한 입력 기능 구현
+* 값 변환 기능 구현 >> 평수 값(m2값)을 입력하면 m2값(평수)으로 자동변환
 * 방 등록 관련한 전체 form 데이터 기입 완료 시, 방 등록 완료 모달 open
 
 
