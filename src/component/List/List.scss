@@ -57,11 +57,13 @@ $point_color: #546e7a;
             align-items: center;
             margin: 10px;  
             img {
-                margin-right: 10px;
-                width: 200px;
+                
+                width: 250px;
+                height: 180px;
                 cursor: pointer;
             }  
             .sub_info {
+                margin-left: 30px;
                 text-align: left;
             }
         }
