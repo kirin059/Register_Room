@@ -56,8 +56,7 @@ $point_color: #546e7a;
             justify-content: center;
             align-items: center;
             margin: 10px;  
-            img {
-                
+            img {          
                 width: 250px;
                 height: 180px;
                 cursor: pointer;
@@ -90,9 +89,17 @@ $point_color: #546e7a;
         margin: 0 1%;
         .header {
             margin: 20px 0;
+            font-size: 30px;
         }
         .info_container {
             height: 70vh;
+            .main_info {
+                margin: 3px;  
+                img {    
+                    width: 180px;
+                    height: 130px;
+                }  
+            }
         }
         button {
             margin: 30px 0 0;
