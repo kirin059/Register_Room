@@ -66,7 +66,12 @@ $point_color: #546e7a;
                     width: 300px;
                     height: 200px;
                     cursor: pointer;
+                    transition: transform 300ms ease;
                 }
+                img:hover {
+                    transform: scale(1.1);
+                    overflow: hidden;
+                }  
             }
         }
     }
