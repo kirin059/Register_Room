@@ -21,6 +21,7 @@
 * Sass 라이브러리를 활용한 css 스타일링
 * json 데이터 파일 제작 및 활용
 * React-Router를 활용한 SPA 라우팅
+* 반응형 웹 적용
 
 ## `Function implementation`
 
