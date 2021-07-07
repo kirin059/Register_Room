@@ -19,18 +19,18 @@
 * Redux reducer를 통한 Store 전역상태 참조 및 디스패치 
 * React-Router를 활용한 SPA 라우팅
 * Sass 라이브러리를 활용한 css 스타일링
-* json 데이터 파일 제작 및 활용
+* JSON 데이터 파일 제작 및 활용
 * React-Router를 활용한 SPA 라우팅
 * 반응형 웹 적용
 
 ## `Function implementation`
 
 * Tap을 통해 '올린방' 과 '내린방' 데이터 분리하여 보여주기
-* json 데이터 파일 생성 및 데이터를 활용하여 모든 페이지에 데이터 바인딩 
-* SessionStorage를 통해 데이터 수정 기능 구현 >> input value값 데이터 고정 및 추가 수정 기능 
+* JSON 데이터 파일 생성 및 데이터를 활용하여 모든 페이지에 데이터 바인딩 
 * Form을 활용한 다양한 입력 기능 구현
+* SessionStorage를 통해 데이터 수정 기능 구현 >> input value값 데이터 고정 및 추가 수정 기능 
 * 값 변환 기능 구현 >> 평수 값(m2값)을 입력하면 m2값(평수)으로 자동변환
-* 방 등록 관련한 전체 form 데이터 기입 완료 시, 방 등록 완료 모달 open
+* 방 등록 관련한 전체 form 데이터 기입 완료 시(유효성 검사 적용), 방 등록 완료 모달 open
 
 
 ## `Project Output`
