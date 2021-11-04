@@ -15,7 +15,7 @@
 ## `Implementation details`
 
 * Functional Components 구조화
-* React(React Router) Hooks API 다양하게 적용(useHistory, useEffect, Context API, useParams, useMemo 등)
+* React(React Router) Hooks API 적용(useHistory, useEffect, Context API, useParams, useMemo 등)
 * Redux reducer를 통한 Store 전역상태 참조 및 디스패치 
 * React-Router를 활용한 SPA 라우팅
 * Sass 라이브러리를 활용한 css 스타일링
